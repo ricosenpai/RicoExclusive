@@ -175,9 +175,9 @@ const questions = [
         What is the value of array after the code executes?`,
         answers: [
             { text: '[1, 2, 3, 4, 5, 4]', correct: false },
-            { text: '[1, 2, 3, 5]', correct: false },
+            { text: '[1, 2, 3, 5]', correct: true },
             { text: '[1, 2, 3, 4, 5, 4, 4]', correct: false },
-            { text: '[1, 2, 3, 4, 4, 5, 4] if this is not mistake', correct: true }
+            { text: '[1, 2, 3, 4, 4, 5, 4]', correct: false }
         ]
     },
     {
@@ -735,12 +735,17 @@ const questions = [
         and SaleItem.
         Let regItem =new Item('Scarf', 55);
         Let saleItem = new SaleItem('Shirt' 80, -1);
-        Item.prototype.description = function (){ return 'This is a ' + this.name;}
+        Item.prototype.description = function (){ 
+            return 'This is a ' + this.name;
+        }
         console.log(regItem.description()); 
         console.log(saleItem.description()); 
-        SaleItem.prototype.description = function () { return 'This is a discounted ' + this.name; } 
+        SaleItem.prototype.description = function () {
+            return 'This is a discounted ' + this.name; 
+        } 
         console.log(regItem.description()); 
-        console.log(saleItem.description()); 
+        console.log(saleItem.description());
+
         What is the output when executing the code above ?`,
         answers: [
             { text: "This is a ScarfThis is a ShirtThis is a discounted ScarfThis is a discounted Shirt", correct: false },
@@ -780,9 +785,10 @@ const questions = [
         How should this expression be modified to ensure that evaluates to false?`,
         answers: [
             { text: "Let x = (1+ 2 ) == ( 6 / 2);", correct: false },
-            { text: "Let x = ('1' + 2) == ( 6 * 2);", correct: true },
+            { text: "Let x = ('1' + 2) == ( 6 * 2); freeCram Correct Answer but wrong", correct: true },
             { text: "Let x = ('1' + ' 2') == ( 6 * 2);", correct: false },
-            { text: "Let x = (1 + 2) == ( '6' / 2);", correct: false }
+            { text: "Let x = (1 + 2) == ( '6' / 2);", correct: false },
+            { text: "Let x = ('1' + 2) == ( 6 / 2); custom correct answer", correct: true }
         ]
     },
     {
