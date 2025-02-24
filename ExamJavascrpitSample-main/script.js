@@ -703,8 +703,137 @@ const questions = [
             { text: "Class ClothingItem {", correct: false },
             { text: "Class ClothingItem extends Item {", correct: true }
         ]
-    }    
-];//number 40 in freeCram
+    }, 
+    {//start number 41 freecram
+        question: `A developer implements and calls the following code when an application state change occurs:
+        Const onStateChange =(innerPageState) => {
+            window.history.pushState(newPageState, ' ', null);
+        }
+        If the back button is clicked after this method is executed, what can a developer expect?`,
+        answers: [
+            { text: "A popstate event is fired with a state property that details the application's last state.", correct: false },
+            { text: "The page reloads and all Javascript is reinitialized.", correct: false },
+            { text: "A navigate event is fired with a state property that details the previous application state.", correct: false },
+            { text: "The page is navigated away from and the previous page in the browser's history is loaded.", correct: true }
+        ]
+    },
+    {
+        question: `A class was written to represent items for purchase in an online store, and a secondclass Representing 
+        items that are on sale at a discounted price. THe constructor sets the name to the first value passed in. The 
+        pseudocode is below:
+        Class Item {
+            constructor(name, price) {
+                ... // Constructor Implementation
+            }
+        }
+        Class SaleItem extends Item {
+            constructor (name, price, discount) {
+                ...//Constructor Implementation
+            }
+        }
+        There is a new requirement for a developer to implement a description method that will return a brief description for Item
+        and SaleItem.
+        Let regItem =new Item('Scarf', 55);
+        Let saleItem = new SaleItem('Shirt' 80, -1);
+        Item.prototype.description = function (){ return 'This is a ' + this.name;}
+        console.log(regItem.description()); 
+        console.log(saleItem.description()); 
+        SaleItem.prototype.description = function () { return 'This is a discounted ' + this.name; } 
+        console.log(regItem.description()); 
+        console.log(saleItem.description()); 
+        What is the output when executing the code above ?`,
+        answers: [
+            { text: "This is a ScarfThis is a ShirtThis is a discounted ScarfThis is a discounted Shirt", correct: false },
+            { text: "This is a ScarfUncaught TypeError: saleItem.description is not a functionThis is aScarfThis is a discounted Shirt", correct: false },
+            { text: "This is a ScarfThis is a ShirtThis is a ScarfThis is a discounted Shirt", correct: true },
+            { text: "This is aScarfUncaught TypeError: saleItem.description is not a functionThis is a ShirtThis is a did counted Shirt", correct: false }
+        ]
+    },
+    {
+        question: `Given the following code:
+        document.body.addEventListener(' click ', (event) => {
+            if (/* CODE REPLACEMENT HERE */) {
+                console.log('button clicked!');
+            )
+        });
+        Which replacement for the conditional statement on line 02 allows a developer to correctly determine that a 
+        button on page is clicked?`,
+        answers: [
+            { text: "e.nodeTarget == this", correct: false },
+            { text: "Event.clicked", correct: false },
+            { text: "button.addEventListener('click')", correct: false },
+            { text: "event.target.nodeName == 'BUTTON'", correct: true }
+        ]
+    },
+    {
+        question: `Which option is a core Node,js module?`,
+        answers: [
+            { text: "Ios", correct: false },
+            { text: "Path", correct: true },
+            { text: "Memory", correct: false },
+            { text: "locate", correct: false }
+        ]
+    }, 
+    {
+        question: `Refer to the expression below:
+        Let x = ('1' + 2) == (6 * 2);
+        How should this expression be modified to ensure that evaluates to false?`,
+        answers: [
+            { text: "Let x = (1+ 2 ) == ( 6 / 2);", correct: false },
+            { text: "Let x = ('1' + 2) == ( 6 * 2);", correct: true },
+            { text: "Let x = ('1' + ' 2') == ( 6 * 2);", correct: false },
+            { text: "Let x = (1 + 2) == ( '6' / 2);", correct: false }
+        ]
+    },
+    {
+        question: `Which three statements are true about promises ?
+        Choose 3 answers`,
+        answers: [
+            { text: "The executor of a new Promise runs automatically.", correct: false },
+            { text: "A Promise has a .then() method.", correct: true },
+            { text: "A settled promise can become resolved.", correct: false },
+            { text: "A fulfilled or rejected promise will not change states.", correct: true },
+            { text: "A pending promise canbecome fulfilled, settled, or rejected.", correct: true }
+        ]
+    },
+    {
+        question: `A developer is leading the creation of a new browser application that will serve a single page application. The team wants to use a new web framework Minimalsit.js.The Lead developer wants to advocate for a more seasoned web framework that already has a community around it.
+        Which two frameworks should the lead developer advocate for?
+        Choose 2 answers`,
+        answers: [
+            { text: "koa", correct: false },
+            { text: "Angular", correct: true },
+            { text: "vue", correct: false },
+            { text: "Express", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code below?
+        Let searchString = ' look for this ';
+        Which two options remove the whitespace from the beginning of searchString?
+        Choose 2 answers`,
+        answers: [
+            { text: "trimStart(searchString);", correct: false },
+            { text: "searchString.trimStart();", correct: true },
+            { text: "searchString.trimEnd();", correct: false },
+            { text: "searchString.replace(/*\s\s*/,'');", correct: true }
+        ]
+    },
+    {
+        question: `A developer has the function, shown below, that is called when a page loads.
+        function onLoad() {
+            console.log('Page has loaded');
+        }
+        Where can the developer see the log statement after loading the page in the browser?
+        `,
+        answers: [
+            { text: "On the browser JavaScriptconsole", correct: true },
+            { text: "On the terminal console running the web server", correct: false },
+            { text: "In the browser performance tools log", correct: false },
+            { text: "On the webpage console log", correct: false }
+        ]
+    }                
+];
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
