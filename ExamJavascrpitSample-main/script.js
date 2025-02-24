@@ -980,7 +980,7 @@ const questions = [
             { text: "The associated sometimes returns a promise.", correct: false },
             { text: "The associated class contains some asynchronous functions.", correct: false },
             { text: "The associated function will always return a promise", correct: true },
-            { text: "The associated function can only be called via asynchronous methods", correct: true }
+            { text: "The associated function can only be called via asynchronous methods", correct: false }
         ]
     },
     {
@@ -1105,7 +1105,367 @@ const questions = [
             { text: "'London'", correct: false },
             { text: "'NaN'", correct: true }
         ]
-    }                         
+    },
+    {
+        question: `developer removes the HTML class attribute from the checkout button, so now it is simply:
+
+        <button>Checkout</button>.
+
+        There is a test to verify the existence of the checkout button, however it looks for a button with class= "blue". 
+        The test fails because no such button is found.
+
+        Which type of test category describes this test?`,
+        answers: [
+            { text: "True negative", correct: false },
+            { text: "False negative", correct: true },
+            { text: "True positive", correct: false },
+            { text: "False positive", correct: false }
+        ]
+    },
+    {
+        question: `A developer copied a JavaScript object:
+        01 function Person() {
+        02     this.firstName = firstName;
+        03     this.lastName = lastName;
+        04     this.name =()=>'\${this.firstName}, \${this.lastName}';
+        05 }
+        06
+        07 const john = new Person();
+        08 const dan = Object.assign(john);
+        09 dan.firstName = 'Dan';
+        How does the developer access dan's firstName,lastName? Choose 2 answers`,
+        answers: [
+            { text: "dan.firstname() + dan.lastName()", correct: false },
+            { text: "dan.name()", correct: true },
+            { text: "dan.firstName = dan.lastName", correct: true },
+            { text: "dan.name", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the HTML below:
+        <div id="main">
+            <ul>
+                <li>Leo</li>
+                <li>Tony</li>
+                <li>Tiger</li>
+            </ul>
+        </div>
+        Which JavaScript statement results in changing " Tony" to "Mr. T."?`,
+        answers: [
+            { text: "document.querySelector('$main li.Tony').innerHTML = ' Mr. T. ';", correct: false },
+            { text: "document.querySelector('$main li:nth-child(2)'),innerHTML =' Mr. T. ';", correct: true },
+            { text: "document.querySelectorAll('$main $TONY').innerHTML = ' Mr. T. ';", correct: false },
+            { text: "document.querySelector('$main li:second-child').innerHTML = ' Mr. T. ';", correct: false }
+        ]
+    },
+    {
+        question: `A test has a dependency on database. query. During the test, the dependency is replaced with an object 
+        called database with the method, Calculator query, that returns an array. The developer does not need to 
+        verify how many times the method has been called.
+        Which two test approaches describe the requirement?
+        Choose 2 answers`,
+        answers: [
+            { text: "Substitution", correct: true },
+            { text: "Black box", correct: false },
+            { text: "Stubbing", correct: true },
+            { text: "White box", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        01 document.body.addEventListener('click', (event) => {
+        02     if (/* Answer here */) {
+        03         console.log('myElement clicked!');
+        04     }
+        05 });
+        Which replacement for the conditionalstatement on line 02 allows a developer to correctly determine that a specific element, 
+        myElement on the page had been clicked?`,
+        answers: [
+            { text: "event.target.id =='myElement'", correct: true },
+            { text: "not available", correct: false },
+            { text: "not available", correct: false },
+            { text: "not available", correct: false }
+        ]
+    },
+    {
+        question: `Universal Containers (UC) notices that its application that allows users to search for accounts makes a 
+        network request each time a key is pressed. This results in too many requests for the server to handle.
+        Address this problem, UC decides to implement a debounce function on string change handler.
+        What are three key steps to implement this debounce function?
+        Choose 3 answers:`,
+        answers: [
+            { text: "When thesearch string changes, enqueue the request within a setTimeout.", correct: true },
+            { text: "If there is an existing setTimeout and the search string changes, cancel the existingsetTimeout using thepersisted timerId and replace it with a new setTimeout.", correct: true },
+            { text: "Store the timeId of the setTimeout last enqueued by the search string change handle.", correct: true },
+            { text: "Ensure that the network request has the property debounce set to true.", correct: false },
+            { text: "If there is an existing setTimeout and the search string change, allow the existingsetTimeout to finish, and do not enqueue a new setTimeout.", correct: false }
+        ]
+    },
+    {
+        question: `A developer has the following array of hourly wages:
+        Let arr = (8, 5, 9, 75, 11, 25, 7, 75, , 13, 25);
+        For workers making less than $10 an hour rate should be multiple by 1.25 and returned in a new array.
+        How should the developer implement the request?`,
+        answers: [
+            { text: "let arrl = arr.filterBy((val) => val < 10 ).aapBy<(num) -> num = ..25 );", correct: false },
+            { text: "let arrl = arr.filter((val) => val < 10).map((num) -> num = 1.25);", correct: false },
+            { text: "let arrl = arr .rr.acArray ((val) => ( val < 10 )) ,map((num) => { num * 1.25 ));", correct: false },
+            { text: "let arrl = arr-map((num) => { return ran * 1.25 }).filter((val) -> { return val < 10)); freecramCorrectAnswer", correct: true },
+            { text: "let arr1 = arr.filter((val) => val < 10).map((num) => num * 1.25); GPTcorrectAnswer", correct: true }
+        ]
+    },
+    {
+        question: `A developer wrote the following code:
+        01 let X = object.value;
+        02
+        03 try {
+        04     handleObjectValue(X);
+        05 } catch (error) {
+        06     handleError(error);
+        07 }
+        The developer has a getNextValue function to execute after handleObjectValue(), but does not want to 
+        execute getNextValue() if an error occurs.
+        How can the developer change the code to ensure this behavior?`,
+        answers: [
+            { text: `03 try{
+                     04     handleObjectValue(x);
+                     05 }catch(error){
+                     06     handleError(error);
+                     07 }then{
+                     08     getNextValue();
+                     09 }`, correct: false },
+            { text: `03 try{
+                     04     handleObjectValue(x);
+                     05 } catch(error){
+                     06     handleError(error);
+                     07 }
+                     08 getNextValue();`, correct: false },
+            { text: `03 try{
+                     04     handleObjectValue(x);
+                     05 } catch(error){
+                     06     handleError(error);
+                     07 } finally {
+                     08     getNextValue();
+                     10 }`, correct: false },
+            { text: "03 try {04 handleObjectValue(x)05 ........................", correct: true }
+        ]
+    },
+    {
+        question: `A developer at Universal Containers is creating their new landing pagebased on HTML, CSS, and JavaScript.
+        The website includes multiple external resources that are loaded when the page is opened.
+        To ensure that visitors have a good experience, a script named personalizeWebsiteContent needs to be 
+        executed when the webpage isloaded and there is no need to wait for the resources to be available.
+
+        Which statement should be used to call personalizeWebsiteContent based on the above business requirement?`,
+        answers: [
+            { text: "windows,addEventListener('DOMContentLoaded ', personalizeWebsiteContent);", correct: true },
+            { text: "windows,addEventListener('load', personalizeWebsiteContent);", correct: false },
+            { text: "windows,addEventListener('onDOMCContentLoaded', personalizeWebsiteContent);", correct: false },
+            { text: "windows,addEventListener('onload', personalizeWebsiteContent);", correct: false }
+        ]
+    },
+    {
+        question: `A developer is leading the creation of a new web server for their team that will fulfill API requests from an existing client.
+        The team wants a web server that runs on Node.Js, and they want to use the new web framework Minimalist.Js. The lead developer wants to advocate for a more seasoned back-end framework that already has a community around it.
+        Which two frameworks could the lead developer advocate for?
+        Choose 2 answers`,
+        answers: [
+            { text: "Express", correct: true },
+            { text: "Angular", correct: false },
+            { text: "Gatsby", correct: false },
+            { text: "Koa", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        let timeFunction =() => {
+            console.log('Timer called.");
+        };
+        let timerId = setTimeout (timedFunction, 1000);
+        Which statement allows a developer to cancel the scheduled timed function?`,
+        answers: [
+            { text: "clearTimeout(timerId);", correct: true },
+            { text: "removeTimeout(timerId);", correct: false },
+            { text: "removeTimeout(timedFunction);", correct: false },
+            { text: "clearTimeout(timedFunction);", correct: false }
+        ]
+    },
+    {
+        question: `Given code below:
+        setTimeout (()=> (
+            console.log(1);
+        ). 0);
+        console.log(2);
+        New Promise ((resolve, reject )) = > (
+            setTimeout(() => (
+            reject(console.log(3));
+        ). 1000);
+        )).catch(() => (
+            console.log(4);
+        ));
+        console.log(5);
+        What is logged to the console?`,
+        answers: [
+            { text: "1 2 5 3 4", correct: false },
+            { text: "2 1 4 3 5", correct: false },
+            { text: "2 5 1 3 4", correct: true },
+            { text: "1 2 43 5", correct: false }
+        ]
+    },
+    {
+        question: `Given the code below:
+        const delay = sync delay => {
+        Return new Promise((resolve, reject) => {
+        setTimeout (resolve,delay);});};
+        const callDelay =async () =>{
+        const yup =await delay(1000);
+        console.log(1);
+
+        What is logged to the console?`,
+        answers: [
+            { text: "1 2 3", correct: false },
+            { text: "1 3 2", correct: false },
+            { text: "2 3 1", correct: true },
+            { text: "2 1 3", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        Function changeValue(obj) {
+            Obj.value = obj.value/2;
+        }
+        Const objA = (value: 10);
+        Const objB = objA;
+        changeValue(objB);
+        Const result = objA.value;
+        What is the value of result after the code executes?`,
+        answers: [
+            { text: "5", correct: true },
+            { text: "Nan", correct: false },
+            { text: "10", correct: false },
+            { text: "Undefined", correct: false }
+        ]
+    },
+    {
+        question: `A developer receives a comment from the Tech Lead that the code given below has error:
+        const monthName = 'July';
+        const year = 2019;
+        if(year === 2019) {
+            monthName ='June';
+        }
+        Which line edit should be made to make this code run?`,
+        answers: [
+            { text: "02 let year =2019;", correct: false },
+            { text: "03 if (year == 2019) {", correct: false },
+            { text: "02 const year = 2020;", correct: false },
+            { text: "01 let monthName ='July';", correct: true }
+        ]
+    },
+    {
+        question: `A developer receives a comment from the Tech Lead that the code given below has error:
+        const monthName = 'July';
+        const year = 2019;
+        if(year === 2019) {
+            monthName ='June';
+        }
+        Which line edit should be made to make this code run?`,
+        answers: [
+            { text: "02 let year =2019;", correct: false },
+            { text: "03 if (year == 2019) {", correct: false },
+            { text: "02 const year = 2020;", correct: false },
+            { text: "01 let monthName ='July';", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the following code:
+        01 class Ship {
+        02     constructor(size) {
+        03         this.size = size;
+        04      }
+        05 }
+        06
+        07 class FishingBoat extends ship {
+        08      constructor(size, capacity) {
+        09          //missing code
+        10          this.capacity = capacity;
+        11      }
+        12      displayCapacity() {
+        13          console.log('The boat has a capacity of ${this.capacity} people.');
+        14      }
+        15 }
+        16
+        17 let myBoat = new FishingBoat('medium', 10);
+        18 myBoat.displayCapacity();
+
+        Which statement should be added to line 09 for the code to display. The boat has a capacity of 10 people?`,
+        answers: [
+            { text: "super.size = size;", correct: false },
+            { text: "this.size = size;", correct: false },
+            { text: "super(size);", correct: true },
+            { text: "ship.size size;", correct: false }
+        ]
+    },
+    // {//number 88 in FreeCram
+    //     question: `Refer to the following code:
+    //     01 class Ship {
+    //     02     constructor(size) {
+    //     03         this.size = size;
+    //     04      }
+    //     05 }
+    //     06
+    //     07 class FishingBoat extends ship {
+    //     08      constructor(size, capacity) {
+    //     09          //missing code
+    //     10          this.capacity = capacity;
+    //     11      }
+    //     12      displayCapacity() {
+    //     13          console.log('The boat has a capacity of ${this.capacity} people.');
+    //     14      }
+    //     15 }
+    //     16
+    //     17 let myBoat = new FishingBoat('medium', 10);
+    //     18 myBoat.displayCapacity();
+
+    //     Which statement should be added to line 09 for the code to display. The boat has a capacity of 10 people?`,
+    //     answers: [
+    //         { text: "super.size = size;", correct: false },
+    //         { text: "this.size = size;", correct: false },
+    //         { text: "super(size);", correct: true },
+    //         { text: "ship.size size;", correct: false }
+    //     ]
+    // },
+    {
+        question: `A developer is setting up a new Node.js server with a client library that is built using events and callbacks.
+        The library:
+        Will establish a web socket connection and handle receipt of messages to theserver Will be imported with 
+        require, and made available with a variable called we.The developer also wants to add error logging if a connection fails.
+        Given this info, which code segment shows the correct way to set up a client with two events that listen at 
+        execution time?`,
+        answers: [
+            { text: "ws.on ('connect', ( ) => {console.log('connected to client'); ws.on('error', (error) => { console.log('ERROR' ,error); });});", correct: true },
+            { text: "ws.on ('connect', ( ) => { console.log('connected to client'); }}; ws.on('error', (error) => { console.log('ERROR' , error); }};", correct: false },
+            { text: "ws.connect (( ) => {console.log('connected to client'); }).catch((error) => { console.log('ERROR' , error); }};", correct: false },
+            { text: "try{ws.connect (( ) => {console.log('connected to client'); });} catch(error) { console.log('ERROR',error); };}", correct: false }
+        ]
+    },
+    {//90 freecram
+        question: `Refer to the following object.
+        01 const dog = {
+        02     firstName: 'Beau',
+        03     lastName: 'Boo',
+        04     get fullName() {
+        05         return this.firstName + ' ' + this.lastName;
+        06     }
+        07 };
+
+        How can a developer access the fullName property for dog?`,
+        answers: [
+            { text: "Dog.fullName ( )", correct: false },
+            { text: "Dog, function, fullName", correct: false },
+            { text: "Dog.fullName", correct: true },
+            { text: "Dog, get,fullName", correct: false }
+        ]
+    }                                       
 ];
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
