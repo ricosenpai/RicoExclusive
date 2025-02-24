@@ -833,12 +833,279 @@ const questions = [
         Where can the developer see the log statement after loading the page in the browser?
         `,
         answers: [
-            { text: "On the browser JavaScriptconsole", correct: true },
+            { text: "On the browser JavaScript console", correct: true },
             { text: "On the terminal console running the web server", correct: false },
             { text: "In the browser performance tools log", correct: false },
             { text: "On the webpage console log", correct: false }
         ]
-    }                
+    },
+    {
+        question: `A developer wrote a fizzbuzz function thatwhen passed in a number, returns the following:
+        'Fizz' if the number is divisible by 3.
+        'Buzz' if the number is divisible by 5.
+        'Fizzbuzz' if the number is divisible by both 3 and 5.
+        Empty string if the number is divisible by neither 3 or 5.
+        Which two test cases will properly test scenarios for the fizzbuzz function?
+        Choose 2 answers
+        `,
+        answers: [
+            { text: "let res = fizzbuzz(5);console.assert ( res === ' ' );", correct: false },
+            { text: "let res = fizzbuzz(15);console.assert ( res === 'fizzbuzz')", correct: true },
+            { text: "let res = fizzbuzz(Infinity);console.assert (res === ' ' )", correct: true },
+            { text: "let res = fizzbuzz(3);console.assert ( res === 'buzz')", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following array:
+        Let arr = [1, 2, 3, 4, 5];
+        Which three options result in x evaluating as [1,2]?
+        Choose 3 answer
+        `,
+        answers: [
+            { text: "let x =arr.splice(0, 2);", correct: true },
+            { text: "let x = arr. slice (2);", correct: false },
+            { text: "let x arr.filter((a) => (return a <= 2 });", correct: true },
+            { text: "let x = arr.filter ((a) => 2 }) ;", correct: false },
+            { text: "let x = arr. slice (0, 2);", correct: true }
+        ]
+    },
+    {
+        question: `Which two console logs output NaN?
+        Choose 2 answers ||`,
+        answers: [
+            { text: "console.log(10 / 'five');", correct: true },
+            { text: "console.log(10 / Number('5) ) ;", correct: false },
+            { text: "console.log(parseInt ' (\"two\"));", correct: true },
+            { text: "console.log(10 / 0);", correct: false }
+        ]
+    },
+    {
+        question: `Why would a developerspecify a package.json as a developed forge instead of a dependency?`,
+        answers: [
+            { text: "Other required packages depend on it for development.", correct: false },
+            { text: "It is only needed for local development and testing.", correct: true },
+            { text: "It should be bundled when the package is published.", correct: false },
+            { text: "It is required by the application in production.", correct: false }
+        ]
+    },
+    {
+        question: `After user acceptance testing, the developer is asked to change the webpage background based on user's 
+        location. This change was implemented and deployed for testing.The tester reports that the background is not 
+        changing, however it works as required when viewing on the developer's computer.
+
+        Which two actions will help determine accurate results?
+        Choose 2 answers`,
+        answers: [
+            { text: "The tester should clear their browser cache.", correct: true },
+            { text: "The developer should rework the code.", correct: false },
+            { text: "The tester should disable their browser cache.", correct: true },
+            { text: "The developer should inspect their browser refresh settings.", correct: false }
+        ]
+    },
+    {
+        question: `Refer to code below:
+        Let productSKU = '8675309' ;
+        A developer has a requirement to generate SKU numbers that are always 19 characters lon, starting with 'sku', and padded with zeros.
+        Which statement assigns the values sku0000000008675309 ?`,
+        answers: [
+            { text: "productSKU = productSKU.padStart (16. '0').padstart(19, 'sku');", correct: true },
+            { text: "productSKU = productSKU.padEnd (16. '0').padstart('sku');", correct: false },
+            { text: "productSKU = productSKU.padStart (19. '0').padstart('sku');", correct: false },
+            { text: "productSKU = productSKU.padEnd (16. '0').padstart(19, 'sku');", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        console.log(''start);
+        Promise.resolve('Success') .then(function(value){
+            console.log('Success');
+        });
+        console.log('End');
+        What is the output after the code executes successfully?`,
+        answers: [
+            { text: "StartEndSuccess", correct: true },
+            { text: "SuccessStartEnd", correct: false },
+            { text: "StartSuccessEnd", correct: false },
+            { text: "EndStartSuccess", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following code:
+        01 function Tiger(){
+        02     this.Type = 'Cat';
+        03     this.size = 'large';
+        04 }
+        05
+        06 let tony = new Tiger();
+        07 tony.roar = () =>{
+        08     console.log('They\'re great1');
+        09 };
+        10
+        11 function Lion(){
+        12     this.type = 'Cat';
+        13     this.size = 'large';
+        14 }
+        15
+        16 let leo = new Lion();
+        17 //Insertcode here
+        18 leo.roar();
+
+        Which two statements could be inserted at line 17 to enable the function call on line 18?
+        Choose 2 answers.`,
+        answers: [
+            { text: "Object.assign(leo,Tiger);", correct: false },
+            { text: "Object.assign(leo,tony);", correct: true },
+            { text: "Leo.prototype.roar = () => { console.log('They\'re pretty good:'); };", correct: false },
+            { text: "Leo.roar = () => {console.log('They\'re pretty good:'); };", correct: true }
+        ]
+    },
+    {
+        question: `developer is trying to convince management that their team will benefit from using Node.js for a backend 
+        server that they are going to create. The server will be a web server that handles API requests from a 
+        website that the teamhas already built using HTML, CSS, and JavaScript.
+
+        Which three benefits of Node.js can the developer use to persuade their manager?
+        Choose 3 answers:`,
+        answers: [
+            { text: "Performs a static analysis on code before execution to look for runtime errors.", correct: true },
+            { text: "Executes server-side JavaScript code to avoid learning a new language.", correct: false },
+            { text: "Ensures stabilitywith one major release every few years.", correct: false },
+            { text: "Uses non-blocking functionality for performant requesthandling.", correct: true },
+            { text: "Installs with its own package manager to install and manage third-party libraries.", correct: true }
+        ]
+    },
+    {
+        question: `Which statement accurately describes the behaviour of the async/ await keyworks ?`,
+        answers: [
+            { text: "The associated sometimes returns a promise.", correct: false },
+            { text: "The associated class contains some asynchronous functions.", correct: false },
+            { text: "The associated function will always return a promise", correct: true },
+            { text: "The associated function can only be called via asynchronous methods", correct: true }
+        ]
+    },
+    {
+        question: `developer has a web server running with Node.js. The command to start the web server is node server.js. 
+        The web server started having latency issues. Instead of a one second turn around for web requests, the 
+        developer now sees a five second turnaround,
+        Which command can the web developer run to see what the module is doing during the latency period?`,
+        answers: [
+            { text: "NODE_DEBUG =http, https node server.js", correct: false },
+            { text: "DEBUG = http, https node server.js", correct: false },
+            { text: "NODE_DEBUG =true node server.js", correct: false },
+            { text: "DEBUG = true node server.js", correct: true }
+        ]
+    },
+    {
+        question: `Given the code below:
+        Setcurrent URL ();
+        console.log('The current URL is: ' +url );
+        functionsetCurrentUrl() {
+        Url = window.location.href:
+
+        What happens when the code executes?`,
+        answers: [
+            { text: "The url variable has local scope and line 02 executes correctly.", correct: false },
+            { text: "The url variable has local scope and line 02 throws an error.", correct: false },
+            { text: "The url variable has global scope and line 02 throws an error.", correct: false },
+            { text: "The url variable has global scope and line 02 executes correctly.", correct: true }
+        ]
+    },
+    {
+        question: `A developer implements a function that adds a few values.
+        Function sum(num) {
+            If (num == undefined) {
+                Num =0;
+            }
+            Return function( num2, num3){
+                If (num3 ===undefined) {
+                    Num3 =0 ;
+                }
+                Return num + num2 + num3;
+            }
+        }
+        Which three options can the developer invoke for this function to get a return value of 10 ?
+        Choose 3 answers`,
+        answers: [
+            { text: "sum(10)()", correct: true },
+            { text: "Sum ()(20)", correct: false },
+            { text: "sum(5)(5)", correct: true },
+            { text: "sum() (5,5)", correct: true },
+            { text: "Sum (5, 5)()", correct: false }
+        ]
+    },
+    {
+        question: `A developer is asked to fix some bugs reported by users. To do that, the developer adds abreakpoint 
+        for debugging.
+        Function Car (maxSpeed, color){
+            This.maxspeed =masSpeed;
+            This.color = color;
+            Let carSpeed = document.getElementById(' CarSpeed');
+            Debugger;
+            Let fourWheels =new Car (carSpeed.value, 'red');
+        }
+        When the code execution stops at the breakpoint on line 06, which two types of information are available in the browser console ?
+        Choose 2 answers:`,
+        answers: [
+            { text: "A variable displaying the number of instances created for the Car Object.", correct: false },
+            { text: "The style, event listeners and other attributes applied to the carSpeed DOM element", correct: true },
+            { text: "The values of the carSpeed and fourWheels variables", correct: false },
+            { text: "The information stored in the window.localStorage property", correct: true }
+        ]
+    },
+    {
+        question: `A developer wants to use a try...catch statement to catch any error that countSheep () 
+        may throw and pass it to a handleError () function.
+
+        What is the correct implementation of the try...catch?`,
+        answers: [
+            { text: "not availabe in fc", correct: false },
+            { text: "not availabe in fc", correct: false },
+            { text: `try { 
+                        countSheep();
+                    } handleError(e) {
+                        catch(e);
+                    }`, correct: false },
+            { text: `try {
+                        setTimeout function() {   
+                            countSheep();
+                        },1000);
+                     } catch (error) {
+                        handleError(error);
+                     }`, correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        01 const server = require('server');
+        02 /* Insert code here */
+        A developer imports a library that creates a web server. Theimported library uses events and callbacks to 
+        start the servers Which code should be inserted at the line 03 to set up an event and start the web server ?`,
+        answers: [
+            { text: "server()", correct: false },
+            { text: "serve(( port) => (", correct: false },
+            { text: "Server.start ();", correct: false },
+            { text: "server.on(' connect ' , ( port) => {console.log('Listening on ' , port) ;})", correct: true },
+            { text: "console.log( 'Listening on ', port) ;", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        let country = {
+            get capital() {
+                let city = Number("London");
+                return {
+                    cityString: city.toString(),
+                }
+            }
+        }
+        Which value can a developer expect when referencing country,capital,cityString?`,
+        answers: [
+            { text: "An error", correct: false },
+            { text: "undefined", correct: false },
+            { text: "'London'", correct: false },
+            { text: "'NaN'", correct: true }
+        ]
+    }                         
 ];
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
