@@ -289,443 +289,421 @@ const questions = [
         ]
     },
     {
-        question: `A developer has two ways to write a function:
-        Option A:
-        function Monster(){
-            this.growl = ()=>{
-                console.log('Grr!');
+        question: `
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;table onclick="console.log('Table log');"&gt;
+            &lt;tr id="row1"&gt;
+                &lt;td&gt;Click me!&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;script&gt;
+            function printMessage(event){
+                console.log('Row log');
+                event.stopPropagation();
             }
-        }
-        Option B:
-        function Monster(){}; 
-        Monster.prototype.growl = ()=>{
-            console.log('Grr!');
-        }
-        After deciding on an option, the developer creates 1000 monster objects.
-        How many growl methods are created with Option A and Option B?`,
+            let elem = document.getElementById('row');
+            elem.addEventListener(('click', printMessage, false))
+        &lt;/script&gt;
+        &lt;/html&gt;
+
+        Which code change should be done for the console to log the following when 'Click me!' is clicked?
+        &gt; Row log
+        &gt; Table log`,
         answers: [
-            { text: "1 for Option A, 1000 for Option B", correct: false },
-            { text: "1000 for both", correct: false },
-            { text: "1 method for both", correct: false },
-            { text: "1000 for Option A, 1 for Option B", correct: true }
+            { text: "Change line 14 to elem.addEventListener('click', printMessage, true);", correct: false },
+            { text: "Remove line 10", correct: true },
+            { text: "Remove lines 13 and 14", correct: false },
+            { text: "Change line 10 to event.stopPropagation(false);", correct: false }
         ]
     },
-        {
-            question: `
-            &lt;!DOCTYPE html&gt;
-            &lt;html lang="en"&gt;
-            &lt;table onclick="console.log('Table log');"&gt;
-                &lt;tr id="row1"&gt;
-                    &lt;td&gt;Click me!&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/table&gt;
-            &lt;script&gt;
-                function printMessage(event){
-                    console.log('Row log');
-                    event.stopPropagation();
-                }
-                let elem = document.getElementById('row');
-                elem.addEventListener(('click', printMessage, false))
-            &lt;/script&gt;
-            &lt;/html&gt;
+    {
+        question: `Refer to the code:
+    
+    function Animal(size,type){
+        this.size = size || "small";
+        this.type = type || "Animal";
+        this.canTalk = false;
+    }
+    let Pet = function(size,type,name,owner){
+        Animal.call(this,size,type);
+        this.name = name;
+        this.owner = owner;
+    }
+    Pet.prototype = Object.create(Animal.prototype);
+    let pet1 = new Pet();
+    console.log("Rico :: "+pet1.name);
+    
+    Given the code above, which three properties are set on pet1?`,
+        answers: [
+            { text: "Owner", correct: false },
+            { text: "Name", correct: false },
+            { text: "Type", correct: true },
+            { text: "Size", correct: true },
+            { text: "canTalk", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code:
+    
+    class Post {
+        // Insert code here
+        constructor(body, author, viewCount) {
+            this.body = body;
+            this.author = author;
+            this.viewCount = viewCount;
+        }
+    }
+    
+    let post1 = new Post("This is the body of the blog post", "Jane Doe", 100);
+    
+    console.log(post1);
+    
+    Given the code above, which statement should be inserted in the placeholder on line 02 to allow for a variable to be set to a new instance of Post with the three attributes correctly populated?`,
+        answers: [
+            { text: "constructor() {", correct: false },
+            { text: "super(body, author, viewCount) {", correct: false },
+            { text: "constructor (body, author, viewCount) {", correct: true },
+            { text: "Function Post (body, author, viewCount) {", correct: false }
+        ]
+    },
+    {
+        question: `bar, awesome is a popular JavaScript module. the versions publish to npm are:
+        1.2
+        1.3.1
+        1.3.5
+        1.4.0
 
-            Which code change should be done for the console to log the following when 'Click me!' is clicked?
-            &gt; Row log
-            &gt; Table log`,
-            answers: [
-                { text: "Change line 14 to elem.addEventListener('click', printMessage, true);", correct: false },
-                { text: "Remove line 10", correct: true },
-                { text: "Remove lines 13 and 14", correct: false },
-                { text: "Change line 10 to event.stopPropagation(false);", correct: false }
-            ]
-        },
+        Teams at Universal Containers use this module in a number of projects. A particular project has thepackage, json definition below.
         {
-            question: `Refer to the code:
-        
-        function Animal(size,type){
-            this.size = size || "small";
-            this.type = type || "Animal";
-            this.canTalk = false;
-        }
-        let Pet = function(size,type,name,owner){
-            Animal.call(this,size,type);
-            this.name = name;
-            this.owner = owner;
-        }
-        Pet.prototype = Object.create(Animal.prototype);
-        let pet1 = new Pet();
-        console.log("Rico :: "+pet1.name);
-        
-        Given the code above, which three properties are set on pet1?`,
-            answers: [
-                { text: "Owner", correct: false },
-                { text: "Name", correct: false },
-                { text: "Type", correct: true },
-                { text: "Size", correct: true },
-                { text: "canTalk", correct: true }
-            ]
-        },
-        {
-            question: `Refer to the code:
-        
-        class Post {
-            // Insert code here
-            constructor(body, author, viewCount) {
-                this.body = body;
-                this.author = author;
-                this.viewCount = viewCount;
+            "name": "UC Project Extra",
+            "version": "0.0.5",
+            "dependencies": {
+                "bar.awesome": "~1.3.0"
             }
         }
-        
-        let post1 = new Post("This is the body of the blog post", "Jane Doe", 100);
-        
-        console.log(post1);
-        
-        Given the code above, which statement should be inserted in the placeholder on line 02 to allow for a variable to be set to a new instance of Post with the three attributes correctly populated?`,
-            answers: [
-                { text: "constructor() {", correct: false },
-                { text: "super(body, author, viewCount) {", correct: false },
-                { text: "constructor (body, author, viewCount) {", correct: true },
-                { text: "Function Post (body, author, viewCount) {", correct: false }
-            ]
-        },
-        {
-            question: `bar, awesome is a popular JavaScript module. the versions publish to npm are:
-            1.2
-            1.3.1
-            1.3.5
-            1.4.0
-
-            Teams at Universal Containers use this module in a number of projects. A particular project has thepackage, json definition below.
-            {
-                "name": "UC Project Extra",
-                "version": "0.0.5",
-                "dependencies": {
-                    "bar.awesome": "~1.3.0"
-                }
-            }
-            A developer runs this command: npm install.
-            Which version of bar.awesome is installed?`,
-            answers: [
-                { text: "The command fails, because version 1.3.0 is not found", correct: false },
-                { text: "1.3.5", correct: true },
-                { text: "1.3.1", correct: false },
-                { text: "1.4.0", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the code below:
-        
-            let str = 'javascript';
-            str[0] = 'J';
-            str[4] = 'S';
-        
-            After attempting to change the string index values, the value of str is still 'javascript'. What is the reason for this behavior?`,
-            answers: [
-                { text: "Primitive values are immutable.", correct: true },
-                { text: "Non-primitive values are mutable.", correct: false },
-                { text: "Primitive values are mutable.", correct: false },
-                { text: "Non-primitive values are immutable.", correct: false }
-            ]
-        },
-        {
-            question: `The developer wants to test the array shown:
-        
-            const arr = Array(5).fill(0);
-        
-            Which two tests are the most accurate for this array? Choose 2 answers:`,
-            answers: [
-                { text: "console.assert(arr.length === 5);", correct: true },
-                { text: "console.assert(arr[0] === 0 && arr[arr.length] === 0);", correct: false },
-                { text: "arr.forEach(elem => console.assert(elem === 0));", correct: true },
-                { text: "console.assert(arr.length > 0);", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the code below:
-        
-            function myFunction(reassign) {
-                let x = 1;
-                var y = 1;
-                if (reassign) {
-                    let x = 2;
-                    var y = 2;
-                    console.log(x);
-                    console.log(y);
-                }
+        A developer runs this command: npm install.
+        Which version of bar.awesome is installed?`,
+        answers: [
+            { text: "The command fails, because version 1.3.0 is not found", correct: false },
+            { text: "1.3.5", correct: true },
+            { text: "1.3.1", correct: false },
+            { text: "1.4.0", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+    
+        let str = 'javascript';
+        str[0] = 'J';
+        str[4] = 'S';
+    
+        After attempting to change the string index values, the value of str is still 'javascript'. What is the reason for this behavior?`,
+        answers: [
+            { text: "Primitive values are immutable.", correct: true },
+            { text: "Non-primitive values are mutable.", correct: false },
+            { text: "Primitive values are mutable.", correct: false },
+            { text: "Non-primitive values are immutable.", correct: false }
+        ]
+    },
+    {
+        question: `The developer wants to test the array shown:
+    
+        const arr = Array(5).fill(0);
+    
+        Which two tests are the most accurate for this array? Choose 2 answers:`,
+        answers: [
+            { text: "console.assert(arr.length === 5);", correct: true },
+            { text: "console.assert(arr[0] === 0 && arr[arr.length] === 0);", correct: false },
+            { text: "arr.forEach(elem => console.assert(elem === 0));", correct: true },
+            { text: "console.assert(arr.length > 0);", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+    
+        function myFunction(reassign) {
+            let x = 1;
+            var y = 1;
+            if (reassign) {
+                let x = 2;
+                var y = 2;
                 console.log(x);
                 console.log(y);
             }
-        
-            What is displayed when myFunction(true) is called?`,
-            answers: [
-                { text: "2 2 1 1", correct: false },
-                { text: "2 2 2 2", correct: false },
-                { text: "2 2 1 2", correct: true },
-                { text: "2 2 undefined undefined", correct: false }
-            ]
-        },
-        {
-            question: `A developer publishes a new version of a package with new features that do not break backward compatibility. The previous version number was 1.1.3. Following semantic versioning format, what should the new package version number be?`,
-            answers: [
-                { text: "1.2.3", correct: false },
-                { text: "2.0.0", correct: false },
-                { text: "1.2.0", correct: true },
-                { text: "1.1.4", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the code below:
-        
-            x = 3.14;
-        
-            function myFunction() {
-                "use strict";
-                y = x;
-            }
-        
-            z = x;
-        
-            myFunction();
-        
-            What is the result of the code?`,
-            answers: [
-                { text: "z is equal to 3.14", correct: true },
-                { text: "use strict has effect only on line 5", correct: false },
-                { text: "Line 5 throws an error", correct: false },
-                { text: "test", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the code below:
-        
-            let total = 10;
-            const interval = setInterval(() => {
-                total++;
-                clearInterval(interval);
-                total++;
-            }, 0);
+            console.log(x);
+            console.log(y);
+        }
+    
+        What is displayed when myFunction(true) is called?`,
+        answers: [
+            { text: "2 2 1 1", correct: false },
+            { text: "2 2 2 2", correct: false },
+            { text: "2 2 1 2", correct: true },
+            { text: "2 2 undefined undefined", correct: false }
+        ]
+    },
+    {
+        question: `A developer publishes a new version of a package with new features that do not break backward compatibility. The previous version number was 1.1.3. Following semantic versioning format, what should the new package version number be?`,
+        answers: [
+            { text: "1.2.3", correct: false },
+            { text: "2.0.0", correct: false },
+            { text: "1.2.0", correct: true },
+            { text: "1.1.4", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+    
+        x = 3.14;
+    
+        function myFunction() {
+            "use strict";
+            y = x;
+        }
+    
+        z = x;
+    
+        myFunction();
+    
+        What is the result of the code?`,
+        answers: [
+            { text: "z is equal to 3.14", correct: true },
+            { text: "use strict has effect only on line 5", correct: false },
+            { text: "Line 5 throws an error", correct: false },
+            { text: "test", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+    
+        let total = 10;
+        const interval = setInterval(() => {
             total++;
-            console.log(total);
-        
-            Considering that JavaScript is single-threaded, what is the output of line 08 after the code executes?`,
-            answers: [
-                { text: "10", correct: false },
-                { text: "12", correct: false },
-                { text: "11", correct: true },
-                { text: "13", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the code below:
-        
-            let foodMenu1 = ['pizza', 'burger', 'French fries'];
-            let finalMenu = foodMenu1;
-            finalMenu.push('Garlic bread');
-        
-            What is the value of foodMenu1 after the code executes?`,
-            answers: [
-                { text: "[ 'pizza', 'burger', 'French fries', 'Garlic bread' ]", correct: true },
-                { text: "[ 'Garlic bread' ]", correct: false },
-                { text: "[ 'pizza', 'burger', 'French fries' ]", correct: false },
-                { text: "[ 'Garlic bread', 'pizza', 'burger', 'French fries' ]", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the following array:
-        
-            let arr = [1, 2, 3, 4, 5];
-        
-            Which three options result in x evaluating as [3, 4, 5]? Choose 3 answers.`,
-            answers: [
-                { text: "let x = arr.filter((a) => { return a > 2 });", correct: true },
-                { text: "let x = arr.filter((a) => { a < 2 });", correct: false },
-                { text: "let x = arr.slice(2);", correct: true },
-                { text: "let x = arr.splice(2, 3);", correct: true },
-                { text: "let x = arr.slice(2, 3);", correct: false }
-            ]
-        },
-        {
-            question: `A developer wrote the following code to test a sum3 function that takes in an array of numbers and returns
-            the sum of the first three numbers in the array, and the test passes.
-            A different developer made changes to the behavior of sum3 to instead sum only the first two numbers 
-            present in the array.
+            clearInterval(interval);
+            total++;
+        }, 0);
+        total++;
+        console.log(total);
+    
+        Considering that JavaScript is single-threaded, what is the output of line 08 after the code executes?`,
+        answers: [
+            { text: "10", correct: false },
+            { text: "12", correct: false },
+            { text: "11", correct: true },
+            { text: "13", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+    
+        let foodMenu1 = ['pizza', 'burger', 'French fries'];
+        let finalMenu = foodMenu1;
+        finalMenu.push('Garlic bread');
+    
+        What is the value of foodMenu1 after the code executes?`,
+        answers: [
+            { text: "[ 'pizza', 'burger', 'French fries', 'Garlic bread' ]", correct: true },
+            { text: "[ 'Garlic bread' ]", correct: false },
+            { text: "[ 'pizza', 'burger', 'French fries' ]", correct: false },
+            { text: "[ 'Garlic bread', 'pizza', 'burger', 'French fries' ]", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following array:
+    
+        let arr = [1, 2, 3, 4, 5];
+    
+        Which three options result in x evaluating as [3, 4, 5]? Choose 3 answers.`,
+        answers: [
+            { text: "let x = arr.filter((a) => { return a > 2 });", correct: true },
+            { text: "let x = arr.filter((a) => { a < 2 });", correct: false },
+            { text: "let x = arr.slice(2);", correct: true },
+            { text: "let x = arr.splice(2, 3);", correct: true },
+            { text: "let x = arr.slice(2, 3);", correct: false }
+        ]
+    },
+    {
+        question: `A developer wrote the following code to test a sum3 function that takes in an array of numbers and returns
+        the sum of the first three numbers in the array, and the test passes.
+        A different developer made changes to the behavior of sum3 to instead sum only the first two numbers 
+        present in the array.
 
-            let res = sum3({1,4,1});
-            console.assert(res === 6);
+        let res = sum3({1,4,1});
+        console.assert(res === 6);
 
-            res = sum3({1,5,0,5});
-            console.assert(res === 6);
+        res = sum3({1,5,0,5});
+        console.assert(res === 6);
+    
+        Which two results occur when running this test on the updated sum3 function?
+        Choose 2 answers`,
+        answers: [
+            { text: "The line 05 assertion passes.", correct: true },
+            { text: "The line 02 assertion fails.", correct: true },
+            { text: "The line 05 assertion fails.", correct: false },
+            { text: "The line 02 assertion passes.", correct: false }
+        ]
+    },
+    {
+        question: `A developer creates a simple webpage with an input field. When a user enters text in the input field and clicks the button, the actual value of the field must be displayedin the console.
+        Here is the HTML file content:
+
+        &lt;input type="text" value="Hello" name="input"&gt;
+        &lt;button type="button"&gt;Display&lt;/button&gt;
         
-            Which two results occur when running this test on the updated sum3 function?
-            Choose 2 answers`,
-            answers: [
-                { text: "The line 05 assertion passes.", correct: true },
-                { text: "The line 02 assertion fails.", correct: true },
-                { text: "The line 05 assertion fails.", correct: false },
-                { text: "The line 02 assertion passes.", correct: false }
-            ]
-        },
-        {
-            question: `A developer creates a simple webpage with an input field. When a user enters text in the input field and clicks the button, the actual value of the field must be displayedin the console.
-            Here is the HTML file content:
+        The developer wrote the javascript code below:
 
-            &lt;input type="text" value="Hello" name="input"&gt;
-            &lt;button type="button"&gt;Display&lt;/button&gt;
-            
-            The developer wrote the javascript code below:
+        Const button = document.querySelector('button');
+        button.addEvenListener('click', () => (
+            Const input = document.querySelector('input');
+            console.log(input.getAttribute('value')
+        );
 
-            Const button = document.querySelector('button');
-            button.addEvenListener('click', () => (
-                Const input = document.querySelector('input');
-                console.log(input.getAttribute('value')
-            );
-
-            When the user clicks the button, the output is always "Hello".
-            What needs to be done to make this code work as expected?`,
-            answers: [
-                { text: "Replace line 03 with const input = document.getElementByName('input');", correct: false },
-                { text: "Replace line 02 with button.addCallback(\"click\", function() {", correct: false },
-                { text: "Replace line 04 with console.log(input.value);", correct: true },
-                { text: "Replace line 02 with button.addEventListener(\"onclick\", function() {", correct: false }
-            ]
-        },
-        {
-            question: `A developer has two ways to write a function:
-            Option A:
-            function Monster() {
-                This.growl = () => {
-                    Console.log ("Grr!");
-                }
+        When the user clicks the button, the output is always "Hello".
+        What needs to be done to make this code work as expected?`,
+        answers: [
+            { text: "Replace line 03 with const input = document.getElementByName('input');", correct: false },
+            { text: "Replace line 02 with button.addCallback(\"click\", function() {", correct: false },
+            { text: "Replace line 04 with console.log(input.value);", correct: true },
+            { text: "Replace line 02 with button.addEventListener(\"onclick\", function() {", correct: false }
+        ]
+    },
+    {
+        question: `A developer has two ways to write a function:
+        Option A:
+        function Monster() {
+            This.growl = () => {
+                Console.log ("Grr!");
             }
-            Option B:
-            function Monster() {};
-            Monster.prototype.growl =() => {
-                console.log("Grr!");
-            }
-            After deciding on an option, the developer creates 1000 monster objects.
-            How many growl methods are created with Option A Option B?`,
-            answers: [
-                { text: "1 growl method is created for Option A.1000 growl methods are created for Option B.", correct: false },
-                { text: "1 growl method is created regardless of whichoption is used.", correct: false },
-                { text: "1000 growl method is created for Option A. 1 growl methods are created for Option B.", correct: true },
-                { text: "1000 growl methods are created regardless of which option is used.", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the HTML below:
-            &lt;div id="main"&gt;
-                &lt;ul&gt;
-                    &lt;li&gt;Leo&lt;/li&gt;
-                    &lt;li&gt;Tony&lt;/li&gt;
-                    &lt;li&gt;Tiger&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/div&gt;
-            Which JavaScript statement results in changing " The Lion."?`,
-            answers: [
-                { text: "document.querySelector('$main li.Tony').innerHTML = \'\" The Lion \';", correct: false },
-                { text: "document.querySelector('$main li:second-child').innerHTML = \"The Lion \';", correct: false },
-                { text: "document.querySelector('$main li:nth-child(2)'),innerHTML = \" The Lion. \';", correct: true },
-                { text: "document.querySelectorAll('$main $TONY').innerHTML = \'\" The Lion", correct: false }
-            ]
-        },
-        {
-            question: `A developer is setting up a Node,js server and is creating a script at the root of the source code, index,js, 
-            that will start the server when executed. The developer declares a variable that needsthe folder location 
-            that the code executes from.
-            Which global variable can be used in the script?`,
-            answers: [
-                { text: " _filename", correct: false },
-                { text: "this.path", correct: false },
-                { text: "_dirname", correct: true },
-                { text: "window.location", correct: false }
-            ]
-        },
-        {
-            question: `Given the following HTML structure:
-            
-            &lt;div&gt;
-                &lt;div id="row-uc"&gt;Universal Container&lt;/div&gt;
-                &lt;div id="row-aa"&gt;Applied Shipping&lt;/div&gt;
-                &lt;div id="row-bt"&gt;Burlington Textiles&lt;/div&gt;
-            &lt;/div&gt;
-            
-            Which statement adds the "priority-account" CSS class to the Universal Containers row?`,
-            answers: [
-                { text: "Document.querySelector('#row-uc').classList.add('priority-account');", correct: true },
-                { text: "Document.querySelectorALL('#row-uc').classList.add('priority-account');", correct: false },
-                { text: "Document.querySelector('#row-uc').classes.push('priority-account');", correct: false },
-                { text: "Document.queryElementById('row-uc').addclass('priority-account');", correct: false }
-            ]
-        },
-        {
-            question: `Refer to the following array:
-            Let arr1 = [ 1,2, 3, 4, 5 ];
-            Let arr2 = arr1.slice(0,5);
+        }
+        Option B:
+        function Monster() {};
+        Monster.prototype.growl =() => {
+            console.log("Grr!");
+        }
+        After deciding on an option, the developer creates 1000 monster objects.
+        How many growl methods are created with Option A Option B?`,
+        answers: [
+            { text: "1 growl method is created for Option A.1000 growl methods are created for Option B.", correct: false },
+            { text: "1 growl method is created regardless of whichoption is used.", correct: false },
+            { text: "1000 growl method is created for Option A. 1 growl methods are created for Option B.", correct: true },
+            { text: "1000 growl methods are created regardless of which option is used.", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the HTML below:
+        &lt;div id="main"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Leo&lt;/li&gt;
+                &lt;li&gt;Tony&lt;/li&gt;
+                &lt;li&gt;Tiger&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        Which JavaScript statement results in changing " The Lion."?`,
+        answers: [
+            { text: "document.querySelector('$main li.Tony').innerHTML = \'\" The Lion \';", correct: false },
+            { text: "document.querySelector('$main li:second-child').innerHTML = \"The Lion \';", correct: false },
+            { text: "document.querySelector('$main li:nth-child(2)'),innerHTML = \" The Lion. \';", correct: true },
+            { text: "document.querySelectorAll('$main $TONY').innerHTML = \'\" The Lion", correct: false }
+        ]
+    },
+    {
+        question: `A developer is setting up a Node,js server and is creating a script at the root of the source code, index,js, 
+        that will start the server when executed. The developer declares a variable that needsthe folder location 
+        that the code executes from.
+        Which global variable can be used in the script?`,
+        answers: [
+            { text: " _filename", correct: false },
+            { text: "this.path", correct: false },
+            { text: "_dirname", correct: true },
+            { text: "window.location", correct: false }
+        ]
+    },
+    {
+        question: `Given the following HTML structure:
+        
+        &lt;div&gt;
+            &lt;div id="row-uc"&gt;Universal Container&lt;/div&gt;
+            &lt;div id="row-aa"&gt;Applied Shipping&lt;/div&gt;
+            &lt;div id="row-bt"&gt;Burlington Textiles&lt;/div&gt;
+        &lt;/div&gt;
+        
+        Which statement adds the "priority-account" CSS class to the Universal Containers row?`,
+        answers: [
+            { text: "Document.querySelector('#row-uc').classList.add('priority-account');", correct: true },
+            { text: "Document.querySelectorALL('#row-uc').classList.add('priority-account');", correct: false },
+            { text: "Document.querySelector('#row-uc').classes.push('priority-account');", correct: false },
+            { text: "Document.queryElementById('row-uc').addclass('priority-account');", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following array:
+        Let arr1 = [ 1,2, 3, 4, 5 ];
+        Let arr2 = arr1.slice(0,5);
 
-            console.log(arr2);
-            >(5) [1,2,3,4,5]
-            undefined
+        console.log(arr2);
+        >(5) [1,2,3,4,5]
+        undefined
 
-            Let arr1 = [ 1,2, 3, 4, 5 ];
-            Let arr2 = Array.from(arr1);
-            console.log(arr2);
-            >(5) [1,2,3,4,5]
-            undefined
-            
-            Which two lines of code result in a second array, arr2 being created such that arr2 is not a reference to arr1?`,
-            answers: [
-                { text: "Let arr2 = arr1;", correct: false },
-                { text: "Let arr2 = Array.from(arr1);", correct: true },
-                { text: "Let arr2 = arr1.sort();", correct: false },
-                { text: "Let arr2 = arr1.slice(0, 5);", correct: true }
-            ]
-        },
-        {
-            question: `Given the following JavaScript code:
-            
-            Counter = 0;
-            const logCounter = () => {
-                console.log(counter);
-            };
+        Let arr1 = [ 1,2, 3, 4, 5 ];
+        Let arr2 = Array.from(arr1);
+        console.log(arr2);
+        >(5) [1,2,3,4,5]
+        undefined
+        
+        Which two lines of code result in a second array, arr2 being created such that arr2 is not a reference to arr1?`,
+        answers: [
+            { text: "Let arr2 = arr1;", correct: false },
+            { text: "Let arr2 = Array.from(arr1);", correct: true },
+            { text: "Let arr2 = arr1.sort();", correct: false },
+            { text: "Let arr2 = arr1.slice(0, 5);", correct: true }
+        ]
+    },
+    {
+        question: `Given the following JavaScript code:
+        
+        Counter = 0;
+        const logCounter = () => {
+            console.log(counter);
+        };
+        logCounter();
+        setTimeout(logCounter, 1100);
+        setInterval(() => {
+            Counter++;
             logCounter();
-            setTimeout(logCounter, 1100);
-            setInterval(() => {
-                Counter++;
-                logCounter();
-            }, 1000);
-            
-            What is logged by the first four log statements?`,
-            answers: [
-                { text: "0 1 2 2", correct: false },
-                { text: "0 0 1 2", correct: true },
-                { text: "0 1 2 3", correct: false },
-                { text: "0 1 1 2", correct: false }
-            ]
-        },
-        {
-            question: `Cloud Kicks has a class to represent items for sale in an online store, as shown below:
+        }, 1000);
         
-            class Item {
-                constructor(name, price) {
-                    this.name = name;
-                    this.price = price;
-                }
-                formattedPrice() {
-                    return 's' + String(this.price);
-                }
+        What is logged by the first four log statements?`,
+        answers: [
+            { text: "0 1 2 2", correct: false },
+            { text: "0 0 1 2", correct: true },
+            { text: "0 1 2 3", correct: false },
+            { text: "0 1 1 2", correct: false }
+        ]
+    },
+    {
+        question: `Cloud Kicks has a class to represent items for sale in an online store, as shown below:
+    
+        class Item {
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
             }
-        
-            A new business requirement requests a ClothingItem class that should have all the properties and methods of the Item class but also include properties specific to clothing.
-        
-            Which line of code properly declares the ClothingItem class such that it inherits from Item?`,
-            answers: [
-                { text: "Class ClothingItem implements Item {", correct: false },
-                { text: "Class ClothingItem super Item {", correct: false },
-                { text: "Class ClothingItem {", correct: false },
-                { text: "Class ClothingItem extends Item {", correct: true }
-            ]
-        }    
+            formattedPrice() {
+                return 's' + String(this.price);
+            }
+        }
+    
+        A new business requirement requests a ClothingItem class that should have all the properties and methods of the Item class but also include properties specific to clothing.
+    
+        Which line of code properly declares the ClothingItem class such that it inherits from Item?`,
+        answers: [
+            { text: "Class ClothingItem implements Item {", correct: false },
+            { text: "Class ClothingItem super Item {", correct: false },
+            { text: "Class ClothingItem {", correct: false },
+            { text: "Class ClothingItem extends Item {", correct: true }
+        ]
+    }    
 ];//number 40 in freeCram
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
