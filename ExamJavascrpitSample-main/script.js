@@ -1109,7 +1109,7 @@ const questions = [
     {
         question: `developer removes the HTML class attribute from the checkout button, so now it is simply:
 
-        <button>Checkout</button>.
+        &lt;button&gt;Checkout&lt;/button&gt;
 
         There is a test to verify the existence of the checkout button, however it looks for a button with class= "blue". 
         The test fails because no such button is found.
@@ -1143,13 +1143,13 @@ const questions = [
     },
     {
         question: `Refer to the HTML below:
-        <div id="main">
-            <ul>
-                <li>Leo</li>
-                <li>Tony</li>
-                <li>Tiger</li>
-            </ul>
-        </div>
+        &lt;id="main"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Leo&lt;/li&gt;
+                &lt;i&gt;Tony&lt;/li&gt;
+                &lt;li&gt;Tiger&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
         Which JavaScript statement results in changing " Tony" to "Mr. T."?`,
         answers: [
             { text: "document.querySelector('$main li.Tony').innerHTML = ' Mr. T. ';", correct: false },
@@ -1362,21 +1362,6 @@ const questions = [
         ]
     },
     {
-        question: `A developer receives a comment from the Tech Lead that the code given below has error:
-        const monthName = 'July';
-        const year = 2019;
-        if(year === 2019) {
-            monthName ='June';
-        }
-        Which line edit should be made to make this code run?`,
-        answers: [
-            { text: "02 let year =2019;", correct: false },
-            { text: "03 if (year == 2019) {", correct: false },
-            { text: "02 const year = 2020;", correct: false },
-            { text: "01 let monthName ='July';", correct: true }
-        ]
-    },
-    {
         question: `Refer to the following code:
         01 class Ship {
         02     constructor(size) {
@@ -1405,35 +1390,29 @@ const questions = [
             { text: "ship.size size;", correct: false }
         ]
     },
-    // {//number 88 in FreeCram
-    //     question: `Refer to the following code:
-    //     01 class Ship {
-    //     02     constructor(size) {
-    //     03         this.size = size;
-    //     04      }
-    //     05 }
-    //     06
-    //     07 class FishingBoat extends ship {
-    //     08      constructor(size, capacity) {
-    //     09          //missing code
-    //     10          this.capacity = capacity;
-    //     11      }
-    //     12      displayCapacity() {
-    //     13          console.log('The boat has a capacity of ${this.capacity} people.');
-    //     14      }
-    //     15 }
-    //     16
-    //     17 let myBoat = new FishingBoat('medium', 10);
-    //     18 myBoat.displayCapacity();
+    {//number 88 in FreeCram
+        question: `Refer to the following code:
+        let greeting = 'GoodBye';
+        let salutation = 'Hello, hello, hi!';
+        try {
+            greeting = 'Hello'; // Attempt to change greeting
+            decodeURI('***'); // This will throw an error
+            salutation = 'GoodBye';
+        } catch (err) {
+            salutation = 'Hey, hello';
+        } finally {
+            salutation = 'Hello, Hello';
+        }
 
-    //     Which statement should be added to line 09 for the code to display. The boat has a capacity of 10 people?`,
-    //     answers: [
-    //         { text: "super.size = size;", correct: false },
-    //         { text: "this.size = size;", correct: false },
-    //         { text: "super(size);", correct: true },
-    //         { text: "ship.size size;", correct: false }
-    //     ]
-    // },
+        Line 05 causes an error.
+        What are the values of greeting and salutation once code completes?`,
+        answers: [
+            { text: "Greeting is Hello and salutation is I say hello.", correct: false },
+            { text: "Greeting is Goodbye and salutation is Hello, Hello.", correct: false },
+            { text: "Greeting is Goodbye and salutation is I say Hello.", correct: false },
+            { text: "Greeting is Hello and salutation is Hello, Hello.", correct: true }
+        ]
+    },
     {
         question: `A developer is setting up a new Node.js server with a client library that is built using events and callbacks.
         The library:
@@ -1465,7 +1444,294 @@ const questions = [
             { text: "Dog.fullName", correct: true },
             { text: "Dog, get,fullName", correct: false }
         ]
-    }                                       
+    },
+    {
+        question: `A developer wants to use a module called DataPrettyPrint. This module exports one default 
+        functioncalled printDate ().
+        How can a developer import and use the printDate() function?`,
+        answers: [
+            { text: `import DatePrettyPrint from '/path/DatePrettyPrint.js';
+                     DatePrettyPrint.printDate();`, correct: false },
+            { text: `import printDate from '/path/DatePrettyPrint.js';
+                     printDate();`, correct: true },
+            { text: `import printDate from '/path/DatePrettyPrint.js';
+                     DatePrettyPrint.printDate();`, correct: false },
+            { text: `import DatePrettyPrint from '/path/DatePrettyPrint.js';
+                     printDate();`, correct: false }
+        ]
+    },
+    {
+        question: `Given the followingcode, what is the value of x?
+        let x = '15' + (10 * 2);`,
+        answers: [
+            { text: "50", correct: false },
+            { text: "3020", correct: false },
+            { text: "35", correct: false },
+            { text: "1520", correct: true }
+        ]
+    },
+    {
+        question: `There is a new requirement for a developer to implement a 
+        currPrice method that will return the current price of the item or sales..
+
+        01 let regItem = new Item('Scarf', 50});//Name, Price
+        02 let saleItem = new Item('Scarf', 50, 0.1);//Name, Price, Discount
+        03 Item.prototype.currPrice = function() {return this.price;}
+        04 console.log(regItem.currPrice());
+        05 console.log(saleItem.currPrice());
+        06 
+        07 SaleItem.prototype.currPrice = function(){return this.price - (this.price * this.discount);}
+        08 console.log(regItem.currPrice());
+        09 console.log(saleItem.currPrice());
+
+        What is the output when executing the code above?`, 
+        answers: [
+            { text: "50805072", correct: true },
+            { text: "508072", correct: false },
+            { text: "50Uncaught TypeError: saleItem,desrcription is not a function5080", correct: false },
+            { text: "5080Uncaught ReferenceError:this,discount is undefined72", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following code:
+        Let obj ={
+        Foo: 1,
+        Bar: 2
+        }
+        Let output =[],
+        for(let something in obj{
+        output.push(something);
+        }
+        console.log(output);
+        What is the output line 11?`, 
+        answers: [
+            { text: "[\"foo:1\",\"bar:2\"]", correct: false },
+            { text: "[\"bar\",\"foo\"]", correct: false },
+            { text: "[1,2]", correct: false },
+            { text: "[\"foo\",\"bar\"]", correct: true }
+        ]
+    },
+    {
+        question: `Given the expressions var1 and var2, what are two valid ways to return the concatenation of the two 
+        expressions and ensure it is string? Choose 2 answers`, 
+        answers: [
+            { text: "string.concat (var1 +var2)", correct: false },
+            { text: "String (var1).concat (var2)", correct: true },
+            { text: "var1.toString ( ) var2.toString ( )", correct: false },
+            { text: "var1 + var2", correct: true }
+        ]
+    },
+    {
+        question: `Refer to code below:
+        Let first = 'who';
+        Let second = 'what';
+        Try{
+            Try{
+                Throw new error('Sad trombone');
+            }catch (err){
+                First ='Why';
+            }finally {
+                Second ='when';
+            } catch (err) {
+                Second ='Where';
+        }
+        What are the values for first and second once the code executes ?`, 
+        answers: [
+            { text: "First is who and second is where", correct: false },
+            { text: "First is Who and second is When", correct: false },
+            { text: "First is why and second is where", correct: false },
+            { text: "First is why and second is when", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code snippet:
+        Function getAvailabilityMessage(item) {
+            If (getAvailability(item)){
+                var msg ="Username available";
+            }
+            Return msg;
+        }
+        A developer writes this code to return a message to user attempting to register a new username. If the 
+        username is available, variable.
+        What is the return value of msg hen getAvailabilityMessage ("newUserName" ) is executed and 
+        getAvailability("newUserName") returns false?`, 
+        answers: [
+            { text: "undefined", correct: true },
+            { text: "\"Username available\"", correct: false },
+            { text: "\"Msg is not defined\"", correct: false },
+            { text: "\"newUserName\"", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following code:
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Button Click Event&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+
+            &lt;div onclick="console.log('Outer message');"&gt;
+                &lt;button id="myButton"&gt;Click me&lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;script&gt;
+                function displayMessage(ev) {
+                    ev.stopPropagation();
+                    console.log('Inner message.');
+                }
+                const elem = document.getElementById('myButton');
+                elem.addEventListener('click', displayMessage);
+            &lt;/script&gt;
+
+        &lt;/body&gt;
+        &lt;/html&gt;
+        What will the console show when the button is clicked?`, 
+        answers: [
+            { text: "Inner messageOuter message", correct: false },
+            { text: "Outer message", correct: false },
+            { text: "Inner message", correct: true },
+            { text: "Outer messageInner message", correct: false }
+        ]
+    },
+    {
+        question: `Refer to code below:
+        console.log(0);
+
+        setTimeout(() => {
+            console.log(1);
+        }, 0); // Missing timeout value was added
+
+        console.log(2);
+
+        setTimeout(() => {
+            console.log(3);
+        }, 0); // Fixed misplaced closing parenthesis
+
+        console.log(4);
+        In which sequence will the numbers be logged?`, 
+        answers: [
+            { text: "13024", correct: false },
+            { text: "02431", correct: false },
+            { text: "02413", correct: true },
+            { text: "01234", correct: false }
+        ]
+    },
+    {
+        question: `Which function should a developer use to repeatedly execute code at a fixed interval?`, 
+        answers: [
+            { text: "setIntervel", correct: true },
+            { text: "setTimeout", correct: false },
+            { text: "setPeriod", correct: false },
+            { text: "setInteria", correct: false }
+        ]
+    },
+    {
+        question: `Given the following code:
+        Let x =('15' + 10)*2;
+        What is the value of x?`, 
+        answers: [
+            { text: "35", correct: false },
+            { text: "1520", correct: false },
+            { text: "50", correct: false },
+            { text: "3020", correct: true }
+        ]
+    },
+    {
+        question: `Which statement can a developer apply to increment the browser's navigation history without a 
+        page refresh?`, 
+        answers: [
+            { text: "window.history.pushState(newStateObject);", correct: true },
+            { text: "window.history.replaceState(newStateObject,'', null);", correct: false },
+            { text: "window.history.pushStare(newStateObject, ' ', null);", correct: false },
+            { text: "window.history.state.push(newStateObject);", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        let o = {
+            get js() {
+                let city1 = String("st. Louis");
+                let city2 = String(" New York");
+                return {
+                    firstCity: city1.toLowerCase(),
+                    secondCity: city2.toLowerCase(),
+                }
+            }
+        }
+        What value can a developer expect when referencing o.js.secondCity?`, 
+        answers: [
+            { text: "' new york '", correct: true },
+            { text: "Undefined", correct: false },
+            { text: "An error", correct: false },
+            { text: "' New York '", correct: false }
+        ]
+    },
+    {
+        question: `developer wants to use a module named universalContainersLib and them callfunctions from it.
+        How should a developer import every function from the module and then call the functions foo and bar ?`, 
+        answers: [
+            { text: "import * ad lib from '/path/universalContainersLib.js';lib.foo();lib.bar();", correct: true },
+            { text: "import * from'/path/universalContaineraLib.js';universalContainersLib.foo();universalContainersLib.bar();", correct: false },
+            { text: "import all from'/path/universalContaineraLib.js';universalContainersLib.foo();universalContainersLib.bar();", correct: false },
+            { text: "import (foo, bar) from '/path/universalContainersLib.js';foo();bar();", correct: false }
+        ]
+    },
+    {
+        question: `At Universal Containers, every team has its own way of copyingJavaScript objects. The code snippet 
+        shows an Implementation from one team:
+
+        function Person() {
+            this.firstName = "John";
+            this.lastName = "Doe";
+            this.name = () => {
+                console.log(\`Hello \${this.firstName} \${this.lastName}\`);
+            };
+        }
+        const john = new Person();
+        const dan = JSON.stringify(JSON.parse(john));
+        dan.firsName = 'Dan';
+        dan.name();
+        What is the output of the code execution?`, 
+        answers: [
+            { text: "Hello John Doe", correct: false },
+            { text: "SyntaxError: Unexpected token in JSON", correct: true },
+            { text: "Hello Dan Doe", correct: false },
+            { text: "Hello Dan", correct: false }
+        ]
+    },
+    {
+        question: `Universal Container(UC) just launched a new landing page, but users complain that the website is slow. A developer found some functions that cause this problem.To verify this, the developer decides to do everything and log the time each of these three suspicious functions consumes.
+        console.time('Performance');
+        maybeAHeavyFunction();
+        thisCouldTakeTooLong();
+        orMaybeThisOne();
+        console.endTime('Performance');
+
+        Which function can the developer use to obtain the time spent by every one of the three functions?`, 
+        answers: [
+            { text: "console.timeLog()", correct: true },
+            { text: "console.getTime()", correct: false },
+            { text: "console.timeStamp()", correct: false },
+            { text: "console.trace()", correct: false }
+        ]
+    },
+    {//number 110 in freCr
+        question: `Refer to the following code that performs a basic mathematical operation on a provided input:
+        function calculate(num) {
+            Return (num +10) / 3;
+        }
+        How should line 02 be written to ensure that x evaluates to 6 in the line below?
+        Let x = calculate (8);`, 
+        answers: [
+            { text: "Return Number(num + 10) / 3;", correct: false },
+            { text: "Return Number((num +10) /3 );", correct: true },
+            { text: "Return (Number (num +10 ) / 3;", correct: false },
+            { text: "Return Integer(num +10) /3;", correct: false }
+        ]
+    }                                                     
 ];
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
