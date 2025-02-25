@@ -1731,8 +1731,549 @@ const questions = [
             { text: "Return (Number (num +10 ) / 3;", correct: false },
             { text: "Return Integer(num +10) /3;", correct: false }
         ]
-    }                                                     
+    },
+    {
+        question: `A developer is wondering whether to use, Promise.then or Promise.catch, especially when a Promise 
+        throws an error?
+        Which two promises are rejected?
+        Which 2 are correct?`, 
+        answers: [
+            { text: "New Promise(() => (throw 'cool error here'}).then(null, error => console.error(error)));", correct: false },
+            { text: "Promise.reject('cool errorhere').then(error =>console.error(error));", correct: false },
+            { text: "Promise.reject('cool error here').catch(error => console.error(error));", correct: true },
+            { text: "New Promise((resolve, reject) => (throw 'cool error here'}).catch(error =>console.error(error));", correct: true }
+        ]
+    },
+    {
+        question: `A developer initiates a server with thefile server,js and adds dependencies in the source codes 
+        package,json that are required to run the server.
+        Which command should the developer run to start the server locally?`, 
+        answers: [
+            { text: "npm start", correct: true },
+            { text: "npm start server.js", correct: false },
+            { text: "start server.js", correct: false },
+            { text: "node start", correct: false }
+        ]
+    },
+    {
+        question: `Given the code below:
+        function Person(name, email) {
+            this.name = name;
+            this.email = email;
+        }
+
+        const john = new Person('John', 'john@email.com');
+        const jane = new Person('Jane', 'jane@email.com');
+        const emily = new Person('Emily', 'emily@email.com');
+
+        let usersList = [john, jane, emily];
+        Which method can be used to provide a visual representation of the list of users and to allow sorting by the 
+        name or email attribute?`, 
+        answers: [
+            { text: "console.table(usersList);", correct: true },
+            { text: "console.info(usersList);", correct: false },
+            { text: "console.groupCol lapsed (usersList);", correct: false },
+            { text: "console.group(usersList);", correct: false }
+        ]
+    },
+    {
+        question: `Which statement parses successfully?`, 
+        answers: [
+            { text: "JSON.parse (\"\"foo\'\");", correct: false },
+            { text: "JSON. parse (\"\"foo\"\');", correct: false },
+            { text: "JSON.parse (\"foo\");", correct: false },
+            { text: " JSON.parse ('\"foo\"');", correct: true }
+        ]
+    },
+    {
+        question: `Universal Containers recently launched its new landing page to host a crowd-funding campaign. The page 
+        uses an external library to display some third-party ads. Once the page is fully loaded,it creates more than 
+        50 new HTML items placed randomly insidethe DOM, like the one in the code below:
+
+        <div class="ad-library-item ad-hidden" onload="myFunction();">
+            <img src="ad-library/ad1.gif" />
+        </div>
+
+        All the elements includes the same ad-library-item class, They are hidden by default, and they are randomly
+        displayed while the user navigates through the page.`, 
+        answers: [
+            { text: "Use the browser to execute a script that removes all the element containing the class ad-library-item.", correct: true },
+            { text: "Use the browser console to execute a scriptthat prevents the load event to be fired.", correct: false },
+            { text: "Use the DOM inspector to remove all the elements containing the class ad-library-item.", correct: false },
+            { text: "Use the DOM inspector to prevent the load eventto be fired.", correct: false }
+        ]
+    },
+    {
+        question: `The developer has a function that prints "Hello" to an input name. To test this,thedeveloper created a 
+        function that returns "World". However the following snippet does not print " Hello World".
+
+        const sayHello = (name) => {
+            console.log("Hello", name());
+        };
+
+        const world = () => {
+            return "world";
+        };
+
+        sayHello(world);
+        What can the developer do to change the code to print "Hello World" ?`, 
+        answers: [
+            { text: "Change line 2 to console.log('Hello' ,name() );", correct: true },
+            { text: "Change line 9 to sayHello(world) ();", correct: false },
+            { text: "Change line 5 to function world ( ) {", correct: false },
+            { text: "Change line 7 to )();", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        for(let number =2 ; number <= 5 ; number += 1 ) {
+            //insert code statement here
+        }
+        The developer needs to insert a code statement in the location shown. The code statement has these requirements:
+        1. Does require an import
+        2. Logs an error when the boolean statement evaluates to false
+        3. Works in both the browser and Node.js
+        Which meet the requirements?`, 
+        answers: [
+            { text: "console.debug(number % 2 === 0);", correct: false },
+            { text: "console.error(number % 2 === 0);", correct: false },
+            { text: "console.assert(number % 2 === 0);", correct: true },
+            { text: "assert(number % 2 === 0);", correct: false }
+        ]
+    },
+    {
+        question: `A developer needs to debug a Node.js web server because a runtime error keeps occurring 
+        at one of the endpoints.
+        The developer wants to test the endpoint on a local machine and make the request against a local 
+        server to look at the behavior. In the source code, the server, js file will start the server. 
+        the developer wants to debug the Node.js server only using the terminal.
+
+        Which commandcan the developer use to open the CLI debugger in their current terminal window?`, 
+        answers: [
+            { text: "node -i server.js", correct: false },
+            { text: "node inspect server.js", correct: true },
+            { text: "node server.js inspect", correct: false },
+            { text: "node start inspect server.js", correct: false }
+        ]
+    },
+    {
+        question: `A developer wants to define a function log to be used a few times on a single-file JavaScript script.
+        01 // Line 1 replacement
+        02 console.log('"LOG:', logInput);
+        03 }
+        Which two options can correctly replaceline 01 and declare the functionfor use?
+        Choose 2 answers`, 
+        answers: [
+            { text: "function log(logInput) {", correct: true },
+            { text: "const log(loginInput) {", correct: false },
+            { text: "const log = (logInput) => {", correct: true },
+            { text: "function log = (logInput) {", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below
+        let inArray = [[1,2],[3,4,5]];
+        which two statements results in the array [1,2,3,4,5]?
+        choose 2 answer`, 
+        answers: [
+            { text: "[ ].concat([...inArray])", correct: true },
+            { text: "[ ].concat(...inArray);", correct: false },
+            { text: "[ ].concat.apply([ ],inArray);", correct: true },
+            { text: "[ ].concat.apply(inArray,[ ]);", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+
+        Let car1 = new Promise((_ , reject) =>setTimeout(reject, 2000, “car 1 crashed in” =>
+        Let car2 =new Promise(resolve => setTimeout(resolve, 1500, “car 2 completed”)
+        Let car3 =new Promise(resolve => setTimeout(resolve, 3000, “car 3 completed”)
+
+        Promise.race(( car1, car2, car3)).then (value => (
+            Let result = \`$(value) the race.\`;
+        )}
+        .catch(arr => {
+            console.log(“Race is cancelled.”, err);
+        });
+        What is the value of result when Promise.race executes?`, 
+        answers: [
+            { text: "Car 3 completes the race", correct: false },
+            { text: "Car 2 completed the race.", correct: true },
+            { text: "Car 1 crashed in the race.", correct: false },
+            { text: "Race is cancelled.", correct: false }
+        ]
+    },
+    {
+        question: `Considering the implications of 'use strict' on line 04, which three statements describe
+        the execution of the code?
+        Choose 3 answers`, 
+        answers: [
+            { text: "'use strict' has an effect only on line 05.", correct: true },
+            { text: "z is equal to 3.14.", correct: true },
+            { text: "'use strict' has an effect between line 04 and theend of the file.", correct: false },
+            { text: "Line 05 throws an error.", correct: true },
+            { text: "'use strict' is hoisted, so it has an effect on all lines.", correct: false }
+        ]
+    },
+    {
+        question: `Given the code below:
+        01 function GameConsole (name) {
+        02     this.name = name;
+        03 }
+        04
+        05 GameConsole.prototype.load = function(gamename) {
+        06     console.log(\`$(this.name) is loading agame : $(gamename) ...\`);
+        07 ) 
+        08 function Console16Bit (name) {
+        09     GameConsole.call(this, name) ;
+        10 }
+        11 Console16bit.prototype = Object.create (GameConsole.prototype) ;
+        12 //insert code here
+        13 console.log( \`$(this.name) is loading a cartridge game :$(gamename) ...\`);
+        14 }
+        15 const console16bit = new Console16bit(' SNEGeneziz ');
+        16 console16bit.load(' Super Nonic 3x Force ');
+
+        What should a developer insert at line 15 to output the following message using the method ?
+        > SNEGeneziz is loading a cartridgegame: Super Monic 3x Force . . .`, 
+        answers: [
+            { text: "Console16bit.prototype.load = function(gamename) {", correct: true },
+            { text: "Console16bit.prototype.load(gamename) {", correct: false },
+            { text: "Console16bit =Object.create(GameConsole.prototype).load = function(gamename) {", correct: false },
+            { text: "Console16bit.prototype.load(gamename) = function() {", correct: false }
+        ]
+    },
+    {
+        question: `A developer wants to set up a secure web server withNode.js. The developer creates a directory locally 
+        called app-server, and the first file is app-server/index.js Without using any third-party libraries, 
+        what should the developer add toindex.js to create the secure web server?`, 
+        answers: [
+            { text: "const http =require('http');", correct: false },
+            { text: "const tls = require('tls');", correct: false },
+            { text: "const https =require('https');", correct: true },
+            { text: "const server =require('secure-server');", correct: false }
+        ]
+    },
+    {
+        question: `Teams at Universal Containers (UC) work on multiple JavaScript projects at the same time.
+        UC is thinking about reusability and how each team can benefit from the work of others.
+        Going open-source or public is not an option at this time.
+        Which option is available to UC with npm?`, 
+        answers: [
+            { text: "Private registries are not supported by npm, but packages can be installed via git.", correct: false },
+            { text: "Private registries are not supported by npm, but packages can be installed via URL.", correct: false },
+            { text: "Private packages can be scored, and scopes can be associated to a private registries.", correct: true },
+            { text: "Private packages are not supported, but they can use another package manager likeyarn.", correct: false }
+        ]
+    },
+    {
+        question: `Which three options show valid methods for creating a fat arrow function?
+        Choose 3 answers`, 
+        answers: [
+            { text: "X,y,z => ( console.log(' executed ') ;)", correct: false },
+            { text: "(x,y,z) => ( console.log(' executed ') ;)", correct: true },
+            { text: "x =>( console.log(' executed ') ; )", correct: true },
+            { text: "( ) => ( console.log(' executed ') ;)", correct: true },
+            { text: "[ ] => ( console.log(' executed ') ;)", correct: false }
+        ]
+    },
+    {
+        question: `Which three options show valid methods for creating a fat arrow function?
+        Choose 3 answers`, 
+        answers: [
+            { text: "X,y,z => ( console.log(' executed ') ;)", correct: false },
+            { text: "(x,y,z) => ( console.log(' executed ') ;)", correct: true },
+            { text: "x =>( console.log(' executed ') ; )", correct: true },
+            { text: "( ) => ( console.log(' executed ') ;)", correct: true },
+            { text: "[ ] => ( console.log(' executed ') ;)", correct: false }
+        ]
+    },
+    {
+        question: `A team that works on a bigproject uses npm to deal with projects dependencies.
+        A developer added a dependency does not get downloaded when they execute npm install.
+        Which two reasons could be possible explanations for this?
+        Choose 2 answers`, 
+        answers: [
+            { text: "The developer missed the option --addwhen adding the dependency.", correct: false },
+            { text: "The developer missed the option --save when adding the dependency.", correct: false },
+            { text: "The developer added the dependency as a dev dependency, and NODE_ENVIs set to production.", correct: true },
+            { text: "The developer added the dependency as a dev dependency, and NODE_ENV is set to production.", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        const exec = (item, delay) => {
+            return new Promise(resolve => setTimeout(() => resolve(item), delay));
+        };
+
+        async function runParallel() {
+            const [result1, result2, result3] = await Promise.all([
+                exec('x', 100), 
+                exec('y', 500), 
+                exec('z', 100)
+            ]);
+
+            return \`parallel is done: \${result1}\${result2}\${result3}\`;
+        }
+        Which two statements correctly execute the runParallel () function?
+        Choose 2 answers`, 
+        answers: [
+            { text: "runParallel().done(function(data){return data;});", correct: false },
+            { text: "Async runParallel().then(data);", correct: false },
+            { text: "runParallel().then(data);", correct: true },
+            { text: "runParallel().then(function(data)return data", correct: true }
+        ]
+    },
+    {
+        question: `A developer is required to write a function that calculates the sum of elements in an array but is getting undefinedevery time the code is executed. The developer needs to find what is missing in the code below.
+        Const sumFunction = arr => {
+            Return arr.reduce((result, current) => {
+                //
+                Result += current;
+                //
+            ), 10);
+        );
+        Which option makes the code work as expected?`, 
+        answers: [
+            { text: "Replace line 04 with result = result +current;", correct: false },
+            { text: "Replace line 05 with return result;", correct: true },
+            { text: "Replace line02 with return arr.map(( result, current) => (", correct: false },
+            { text: "Replace line 03 with if(arr.length == 0)(return 0; )", correct: false }
+        ]
+    },
+    {
+        question: `Which code statement below correctly persists an objects inlocal Storage?`, 
+        answers: [
+            { text: "const setLocalStorage = (storageKey, jsObject) => {window.localStorage.setItem(storageKey, JSON.stringify(jsObject));}", correct: true },
+            { text: "const setLocalStorage = ( jsObject) =>{window.localStorage.connectObject(jsObject));}", correct: false },
+            { text: "const setLocalStorage= ( jsObject) => {window.localStorage.setItem(jsObject);}", correct: false },
+            { text: "const setLocalStorage = (storageKey, jsObject) => {window.localStorage.persist(storageKey, jsObject);}", correct: false }
+        ]
+    },
+    {
+        question: `A developer wants to leverage a module to print a price in pretty format, and has imported a method 
+        as shown below:
+        Import printPrice from '/path/PricePrettyPrint.js';
+        Based on the code, what mustbe true about theprintPrice function of the PricePrettyPrint module for 
+        this import to work ?`, 
+        answers: [
+            { text: "printPrice must be the default export", correct: true },
+            { text: "printPrice must be an all export", correct: false },
+            { text: "printPrice must be be a named export", correct: false },
+            { text: "printPrice must be a multi exportc", correct: false }
+        ]
+    },
+    // { // the questio is not accurate in choices
+    //     question: `Refer to the code below:
+    //     Const searchTest = 'Yay! Salesforce is amazing!" ;
+    //     Let result1 = searchText.search(/sales/i);
+    //     Let result 21 = searchText.search(/sales/i);
+    //     console.log(result1);
+    //     console.log(result2);
+    //     After running this code, which result is displayed on the console?`, 
+    //     answers: [
+    //         { text: "> 5 > -1", correct: true },
+    //         { text: "> true > false", correct: false },
+    //         { text: "> 5>undefined", correct: false },
+    //         { text: "> 5 > 0", correct: false }
+    //     ]
+    // },
+    {
+        question: `Which code statement correctly retrieves and returns an object from localStorage?`, 
+        answers: [
+            { text: "const retrieveFromLocalStorage = (storageKey) =>{return window.localStorage.getItem(storageKey);}", correct: false },
+            { text: "const retrieveFromLocalStorage = () =>{return JSON.stringify(window.localStorage.getItem(storageKey));}", correct: false },
+            { text: "constretrieveFromLocalStorage = (storageKey) =>{return window.localStorage[storageKey];}", correct: false },
+            { text: "const retrieveFromLocalStorage = (storageKey) =>{return JSON.parse(window.localStorage.getItem(storageKey));}", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+
+        function changeValue(param) {
+            Param =5;
+        }
+        Let a =10;
+        Let b =5;
+        changeValue(b);
+        Const result = a+ “ – ”+ b;
+        What is the value of result when code executes?`, 
+        answers: [
+            { text: "10 - 10", correct: false },
+            { text: "5 - 5", correct: false },
+            { text: "5 - 10", correct: false },
+            { text: "10 - 5", correct: true }
+        ]
+    },
+    {
+        question: `Given two expressions var1 and var2. What are two valid ways to return the logical AND 
+        of the two expressions and ensure it is data type Boolean ?
+        Choose 2 answers:`, 
+        answers: [
+            { text: "Boolean(var1) && Boolean(var2)", correct: true },
+            { text: "Boolean(var1 && var2)", correct: true },
+            { text: "var1.toBoolean() && var2toBoolean()", correct: false },
+            { text: "var1 && var2", correct: false }
+        ]
+    },
+    {
+        question: `Whichthree actions can be using the JavaScript browser console?
+        Choose 3 answers:`, 
+        answers: [
+            { text: "Run code that is not related to page", correct: false },
+            { text: "Display a report showing the performance of a page.", correct: true },
+            { text: "View and change DOM the page.", correct: true },
+            { text: "View and change security cookies.", correct: false },
+            { text: "view , change, and debug the JavaScript code ofthe page.", correct: true }
+        ]
+    },
+    {
+        question: `A developer uses a parsed JSON string to work with user information as in the block below:
+        01 const userInformation ={
+        02 " id " : "user-01",
+        03"email" : "user01@universalcontainers.demo",
+        04 "age" : 25
+        Which two options access the email attribute in the object?
+        Choose 2 answers`, 
+        answers: [
+            { text: "userInformation[\"email\"]", correct: true},
+            { text: "userInformation.email", correct: true },
+            { text: "userInformation.get(\"email\")", correct: false},
+            { text: "userInformation(email)", correct: false }
+        ]
+    },
+    {
+        question: `Which option istrue about the strict mode in imported modules?`, 
+        answers: [
+            { text: "You can only reference notStrict() functions from the imported module.", correct: false},
+            { text: "Add the statement use non-strict, before any other statements in the module to enablenot-strict mode.", correct: false },
+            { text: "Imported modules are in strict mode whether you declare them as such or not.", correct: true},
+            { text: "Add the statement use strict =false; before any other statements in the module to enablenot- strict mode.", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        let sayHello = () => {
+            console.log ('Hello, world!');
+        };
+        Which code executes sayHello once, two minutes from now?`, 
+        answers: [
+            { text: "setInterval(sayHello, 12000);", correct: false},
+            { text: "setTimeout(sayHello, 12000);", correct: true },
+            { text: "delay(sayHello, 12000);", correct: false},
+            { text: "setTimeout(sayHello(), 12000);", correct: false }
+        ]
+    },
+    {
+        question: `GIven a value, which three options can a developeruse to detect if thevalue is NaN?
+        Choose 3 answers !`, 
+        answers: [
+            { text: "value == NaN", correct: false},
+            { text: "value ! == value", correct: true },
+            { text: "Number.isNaN(value)", correct: true},
+            { text: "Object.is(value, NaN)", correct: true },
+            { text: "Object.is(value, NaN)", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following code block:
+        class Student {
+            constructor(name) {
+                this.name = name;
+            }
+
+            takeTest() {
+                console.log(\`\${this.name} got 70% on test.\`);
+            }
+        }
+        class BetterStudent extends Student {
+            constructor(name) {
+                super(name);
+                this.name = 'Better student ' + name;
+            }
+
+            takeTest() {
+                console.log(\`\${this.name} got 100% on test.\`);
+            }
+        }
+        let student = new BetterStudent('Jackie');
+        student.takeTest();
+
+        What is the console output?`, 
+        answers: [
+            { text: "> Better student Jackie got 70% on test.", correct: false},
+            { text: "> Better student Jackie got 100% ontest.", correct: true },
+            { text: "> Jackie got 70% on test.", correct: false},
+            { text: "> Uncaught Reference Error", correct: false }
+        ]
+    },
+    {
+        question: `Given the code below:
+        const copy = JSON.stringify([ newString(' false '), new Bollean( false ), undefined ]); 
+        What is the value of copy?`, 
+        answers: [
+            { text: " -- [ \"false\" , false, undefined ]-- ", correct: false},
+            { text: "-- [ \"false\" ,false, null ]--", correct: true },
+            { text: "-- [ false, { } ]--", correct: false},
+            { text: "-- [ \"false\" , { } ]--", correct: false }
+        ]
+    },
+    {
+        question: `Refer to HTML below:
+        &lt;p&gt; The current status of an Order: &lt;span id ="status"&gt; In Progress &lt;/span&gt; &lt;/p&gt;.
+
+        Which JavaScript statement changes thetext 'In Progress' to 'Completed' ?`, 
+        answers: [
+            { text: "document.getElementById(\"status\").Value = 'Completed' ;", correct: false},
+            { text: "document.getElementById(\"status\").innerHTML = 'Completed' ;", correct: true },
+            { text: "document.getElementById(\".status\").innerHTML = 'Completed' ;", correct: false},
+            { text: "document.getElementById(\"#status\").innerHTML = 'Completed' ;", correct: false }
+        ]
+    },
+    {
+        question: `Refer tothe code below:
+        function Person() {
+            this.firstName = 'John';
+        }
+        Person.prototype = {
+            job: x => 'Developer'
+        };
+        const myFather = new Person();
+        const result = myFather.firstName + ' . ' + myFather.job();
+
+        What is the value of result after line 10 executes?`, 
+        answers: [
+            { text: "undefined Developer", correct: false},
+            { text: "John Developer", correct: false },
+            { text: "Error: myFather.job is not a function", correct: true},
+            { text: "John undefined", correct: false }
+        ]
+    },
+    {
+        question: `A developer needs to test this function:
+        const sum3 = (arr) => {
+            if(!arr.length){
+                return 0;
+            }
+            if(arr.length === 1){ 
+                return arr[0] 
+            }
+            if(arr.length === 2) {
+                return arr[0]+ arr[1];
+            }
+            return arr[0] + arr[1] + arr[2];
+        }
+        Which two assert statements are valid tests for the function?
+        Choose 2 answers`, 
+        answers: [
+            { text: "console.assert(sum3([1, '2'])) == 12);", correct: true},
+            { text: "console.assert(sum3([-3, 2])) == -1);", correct: true },
+            { text: "console.assert(sum3(0)) == 0);", correct: false},
+            { text: "console.assert(sum3('hello', 2, 3, 4)) === NaN);", correct: false }
+        ]
+    }                                                                               
 ];
+//&lt;div&gt;
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
