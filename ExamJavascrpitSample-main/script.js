@@ -676,9 +676,9 @@ const questions = [
         What is logged by the first four log statements?`,
         answers: [
             { text: "0 1 2 2", correct: false },
-            { text: "0 0 1 2", correct: true },
+            { text: "0 0 1 2", correct: false },
             { text: "0 1 2 3", correct: false },
-            { text: "0 1 1 2", correct: false }
+            { text: "0 1 1 2", correct: true }
         ]
     },
     {
@@ -1697,7 +1697,7 @@ const questions = [
         What is the output of the code execution?`, 
         answers: [
             { text: "Hello John Doe", correct: false },
-            { text: "SyntaxError: Unexpected token in JSON", correct: true },
+            { text: "SyntaxError: Unexpected token in JSON OR TypeError: dan.name is not a function", correct: true },
             { text: "Hello Dan Doe", correct: false },
             { text: "Hello Dan", correct: false }
         ]
@@ -2271,7 +2271,302 @@ const questions = [
             { text: "console.assert(sum3(0)) == 0);", correct: false},
             { text: "console.assert(sum3('hello', 2, 3, 4)) === NaN);", correct: false }
         ]
-    }                                                                               
+    },
+    {
+        question: `In the browser, the window object is often used to assign variables that require the broadest scope 
+        in an application Node.js application does not have access to the window object by default.
+        Which two methods are used to address this ?
+        Choose 2 answers`, 
+        answers: [
+            { text: "Create a new window object in the root file.", correct: false},
+            { text: "Assign variables to the global object.", correct: true },
+            { text: "Assign variables to module.exports and require them as needed.", correct: false},
+            { text: "Use the document object instead of the window object.", correct: false }
+        ]
+    },
+    {
+        question: `Which javascript methods can be used to serialize an object into a string and deserialize a JSON string into
+        an object, respectively?`, 
+        answers: [
+            { text: "JSON.stringify and JSON.parse", correct: true},
+            { text: "JSON.encode and JSON.decode", correct: false },
+            { text: "JSON.serialize and JSON.deserialize", correct: false},
+            { text: "JSON.parse and JSON.deserialize", correct: false }
+        ]
+    },
+    {
+        question: `A developer creates a generic function to log custom messages in the console. To do this, the function below is implemented.
+        01 function logStatus(status){
+        02 console./*Answer goes here*/{'Item status is: %s', status};
+        03 }
+        Which three console logging methods allow the use of string substitution in line 02?`, 
+        answers: [
+            { text: "Log", correct: true},
+            { text: "Assert", correct: false },
+            { text: "info", correct: true},
+            { text: "Message", correct: false },
+            { text: "Error", correct: true }
+        ]
+    },
+    {
+        question: `A developer creates an object where its properties should be immutable and prevent 
+        properties from being added or modified.
+        Which method should be used to execute this business requirement ?`, 
+        answers: [
+            { text: "Object.const()", correct: false},
+            { text: "Object.lock()", correct: false },
+            { text: "Object.freeze()", correct: true},
+            { text: "Object.eval()", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        Let textValue = '1984';
+        Which code assignment shows a correct way to convert this string to an integer?`, 
+        answers: [
+            { text: "Let numberValue = Integer(textValue);", correct: false},
+            { text: "let numberValue = Number(textValue);", correct: true },
+            { text: "Let numberValue = textValue.toInteger();", correct: false},
+            { text: "Let numberValue = (Number)textValue;", correct: false }
+        ]
+    },
+    {
+        question: `Considering type coercion, what does the following expression evaluate to?
+        True + '13' + NaN`, 
+        answers: [
+            { text: "' true13 '", correct: false},
+            { text: "' true13NaN '", correct: false},
+            { text: "14", correct: false},
+            { text: " ' 113NaN '", correct: true }
+        ]
+    },
+    {
+        question: `A developer is debugging a web server that uses Node.js The server hits a runtimeerror every third 
+        request to an important endpoint on the web server.
+        The developer added a break point to the start script, that is at index.js at he root of the server's source code.
+        The developer wants to make use of chrome DevTools to debug.
+
+        Which command can be run to access DevTools and make sure the breakdown is hit ?`, 
+        answers: [
+            { text: "Node --inspect-brk index.js", correct: true},
+            { text: "node -i index.js", correct: false},
+            { text: "Node inspect index.js", correct: false},
+            { text: "Node --inspect index.js", correct: false }
+        ]
+    },
+    {
+        question: `A developer is debugging a web server that uses Node.js The server hits a runtimeerror every third 
+        request to an important endpoint on the web server.
+        The developer added a break point to the start script, that is at index.js at he root of the server's source code.
+        The developer wants to make use of chrome DevTools to debug.
+
+        Which command can be run to access DevTools and make sure the breakdown is hit ?`, 
+        answers: [
+            { text: "Node --inspect-brk index.js", correct: true},
+            { text: "node -i index.js", correct: false},
+            { text: "Node inspect index.js", correct: false},
+            { text: "Node --inspect index.js", correct: false }
+        ]
+    },
+    {
+        question: `A test has a dependency on database.query. During the test the dependency is replaced with an object called 
+        database with the method, query, that returns an array. The developer needs to verify how many times the method was 
+        called and the arguments used each time.
+        Which two test approaches describe the requirement?
+        Choose 2 answers`, 
+        answers: [
+            { text: "Integration", correct: false},
+            { text: "Mocking", correct: true},
+            { text: "Black box", correct: false},
+            { text: "White box", correct: true }
+        ]
+    },
+    {
+        question: `Consider type coercion, what does the following expression evaluate to?
+        True + 3 + '100' + null`, 
+        answers: [
+            { text: "'3100null'", correct: false},
+            { text: "4100", correct: false},
+            { text: "104", correct: false},
+            { text: "'4100null'", correct: true }
+        ]
+    },
+    {
+        question: `developer creates a new web server that uses Node.js. It imports a server library that uses events and 
+        callbacks for handling server functionality.
+        The server library is imported with require and is made available to the code by a variable named server. 
+        The developer wants to log any issues that the server has while booting up.
+        Given the code and the information the developer has, which code logs an error at boost with an event?`, 
+        answers: [
+            { text: `Try{
+                        server.start();
+                    } catch(error) {
+                        console.log('ERROR', error);
+                    }`, correct: false},
+            { text: `Server.error ((server) => {
+                        console.log('ERROR', error);
+                    });`, correct: false},
+            { text: `Server.on ('error', (error) => {
+                        console.log('ERROR', error);
+                    });`, correct: true},
+            { text: `Server.catch ((server) => {
+                        console.log('ERROR', error);
+                    });`, correct: false }
+        ]
+    },
+    {
+        question: `A developer has the following array of student test grades:
+        Let arr = [ 7, 8, 5, 8, 9 ];
+        The Teacher wants to double each score and then see an array of the students who scored more than 15 points.
+        How should the developer implement the request?`, 
+        answers: [
+            { text: "Let arr1 = arr.mapBy (( num) => ( return num *2 )) .filterBy (( val ) => return val > 15 )) ;", correct: false},
+            { text: "Let arr1 = arr.filter(( val) => ( return val > 15 )) .map (( num) => ( return num *2 ))", correct: false},
+            { text: "Let arr1 = arr.map((num) => num*2). Filter (( val) => val > 15);", correct: true},
+            { text: "Let arr1 = arr.map((num) => ( num *2)).filterBy((val) => ( val >15 ));", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        new Promise((resolve, reject) => {
+        const fraction = Math.random();
+        if( fraction >0.5) reject("fraction > 0.5, " + fraction);
+            resolve(fraction);
+        })
+        .then(() =>console.log("resolved"))
+        .catch((error) => console.error(error))
+        .finally(() => console.log(" when am I called?"));
+
+        When does Promise.finally on line 08 get called?`, 
+        answers: [
+            { text: "WHen resolved", correct: false},
+            { text: " When rejected", correct: false},
+            { text: "When resolved and settled", correct: false},
+            { text: "When resolved or rejected", correct: true }
+        ]
+    },
+    {
+        question: `A developer has code that calculates a restaurant bill, but generates incorrect answers while testing the code:
+        function calculateBill ( items ) {
+            let total = 0;
+            total += findSubTotal(items);
+            total += addTax(total);
+            total += addTip(total);
+            return total;
+        }
+        Which option allows the developer to step into each function execution within calculateBill?`, 
+        answers: [
+            { text: "Using the debugger command on line 05.", correct: false},
+            { text: "Calling the console.trace (total) method on line 03.", correct: false},
+            { text: "Wrapping findSubtotal in a console.log() method.", correct: false},
+            { text: "Using the debugger command on line 03", correct: true }
+        ]
+    },
+    {
+        question: `Refer to following code block:
+        Let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,];
+        Let output =0;
+        For (let num of array){
+            if (output >0){
+                Break;
+            }
+            if(num % 2 == 0){
+                Continue;
+            }
+            Output +=num;
+        }
+        What is the value of output after the code executes?`, 
+        answers: [
+            { text: "16 answer of freecram", correct: true},
+            { text: "36", correct: false},
+            { text: "11", correct: false},
+            { text: "25", correct: false },
+            { text: "The answer should be 1 when run in console", correct: true }
+        ]
+    },
+    {
+        question: `Refer to the following code:
+        Let sampleText = 'The quick brown fox jumps';
+        A developer needs to determine if a certain substring is part of a string.
+        Which three expressions return true for the given substring ?
+        Choose 3 answers`, 
+        answers: [
+            { text: "sampleText.includes('fox');", correct: true},
+            { text: "sampleText.includes(' quick ', 4);", correct: false},
+            { text: "sampleText.includes(' fox ');", correct: true},
+            { text: "sampleText.includes(' Fox ', 3)", correct: false },
+            { text: "sampleText.includes(' quick ') !== -1;", correct: true }
+        ]
+    },
+    {
+        question: `The developer wants to test this code:
+        Const toNumber =(strOrNum) => strOrNum;
+        Which two tests are most accurate for this code?
+        Choose 2 answers`, 
+        answers: [
+            { text: "console.assert(toNumber () === NaN);", correct: false},
+            { text: "console.assert(toNumber('-3') < 0);", correct: true},
+            { text: "console.assert(toNumber('2') === 2);", correct: true},
+            { text: "console.assert(Number.isNaN(toNumber()));", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the following code:
+        function test (val) {
+            If (val === undefined) {
+                return 'Undefined values!' ;
+            }
+            if (val === null) {
+                return 'Null value! ';
+            }
+            return val;
+        }
+        Let x;
+        test(x);
+        What is returned by the function call on line 13?`, 
+        answers: [
+            { text: "'Undefined values!'", correct: true},
+            { text: "Undefined", correct: false},
+            { text: "'Null value!'", correct: false},
+            { text: "Line 13 throws an error.", correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        Const pi = 3.1415326,
+        What is the data type of pi?`, 
+        answers: [
+            { text: "Float", correct: false},
+            { text: "Number", correct: true},
+            { text: "Double", correct: false},
+            { text: "Decimal", correct: false }
+        ]
+    },
+    {
+        question: `Refer to code below:
+        Let a ='a';
+        Let b;
+        // b = a;
+        console.log(b);
+        What is displayed when the code executes?`, 
+        answers: [
+            { text: "Null", correct: false},
+            { text: "Undefined", correct: true},
+            { text: "ReferenceError: b is not defined", correct: false},
+            { text: "A", correct: false }
+        ]
+    },
+    {
+        question: `Which three browser specific APIs are available for developers to persist data between page loads ?
+        Choose 3 answers`, 
+        answers: [
+            { text: "Cookies", correct: true},
+            { text: "localStorage", correct: true},
+            { text: "Global variables", correct: false},
+            { text: "IIFEs", correct: false },
+            { text: "indexedDB", correct: true }
+        ]
+    }                                                                                               
 ];
 //&lt;div&gt;
 const questionElement = document.getElementById("question");

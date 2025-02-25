@@ -38,7 +38,134 @@ const questions = [
             { text: "Object.is(value, NaN)", correct: true },
             { text: "Object.is(value, NaN)", correct: false }
         ]
-    }     
+    },
+    {
+        question: `In the browser, the window object is often used to assign variables that require the broadest scope 
+        in an application Node.js application does not have access to the window object by default.
+        Which two methods are used to address this ?
+        Choose 2 answers`, 
+        answers: [
+            { text: "Create a new window object in the root file.", correct: false},
+            { text: "Assign variables to the global object.", correct: true },
+            { text: "Assign variables to module.exports and require them as needed.", correct: false},
+            { text: "Use the document object instead of the window object.", correct: false }
+        ]
+    },
+    {
+        question: `A developer creates a generic function to log custom messages in the console. To do this, the function below is implemented.
+        01 function logStatus(status){
+        02 console./*Answer goes here*/{'Item status is: %s', status};
+        03 }
+        Which three console logging methods allow the use of string substitution in line 02?`, 
+        answers: [
+            { text: "Log", correct: true},
+            { text: "Assert", correct: false },
+            { text: "info", correct: true},
+            { text: "Message", correct: false },
+            { text: "Error", correct: true }
+        ]
+    },
+    {
+        question: `A developer needs to debug a Node.js web server because a runtime error keeps occurring 
+        at one of the endpoints.
+        The developer wants to test the endpoint on a local machine and make the request against a local 
+        server to look at the behavior. In the source code, the server, js file will start the server. 
+        the developer wants to debug the Node.js server only using the terminal.
+
+        Which commandcan the developer use to open the CLI debugger in their current terminal window?`, 
+        answers: [
+            { text: "node -i server.js", correct: false },
+            { text: "node inspect server.js", correct: true },
+            { text: "node server.js inspect", correct: false },
+            { text: "node start inspect server.js", correct: false }
+        ]
+    },
+    {
+        question: `A developer is debugging a web server that uses Node.js The server hits a runtimeerror every third 
+        request to an important endpoint on the web server.
+        The developer added a break point to the start script, that is at index.js at he root of the server's source code.
+        The developer wants to make use of chrome DevTools to debug.
+
+        Which command can be run to access DevTools and make sure the breakdown is hit ?`, 
+        answers: [
+            { text: "Node --inspect-brk index.js", correct: true},
+            { text: "node -i index.js", correct: false},
+            { text: "Node inspect index.js", correct: false},
+            { text: "Node --inspect index.js", correct: false }
+        ]
+    },
+    {
+        question: `A test has a dependency on database. query. During the test, the dependency is replaced with an object 
+        called database with the method, Calculator query, that returns an array. The developer does not need to 
+        verify how many times the method has been called.
+        Which two test approaches describe the requirement?
+        Choose 2 answers`,
+        answers: [
+            { text: "Substitution", correct: true },
+            { text: "Black box", correct: false },
+            { text: "Stubbing", correct: true },
+            { text: "White box", correct: false }
+        ]
+    },
+    {
+        question: `A test has a dependency on database.query. During the test the dependency is replaced with an object called 
+        database with the method, query, that returns an array. The developer needs to verify how many times the method was 
+        called and the arguments used each time.
+        Which two test approaches describe the requirement?
+        Choose 2 answers`, 
+        answers: [
+            { text: "Integration", correct: false},
+            { text: "Mocking", correct: true},
+            { text: "Black box", correct: false},
+            { text: "White box", correct: true }
+        ]
+    },
+    {
+        question: `developer creates a new web server that uses Node.js. It imports a server library that uses events and 
+        callbacks for handling server functionality.
+        The server library is imported with require and is made available to the code by a variable named server. 
+        The developer wants to log any issues that the server has while booting up.
+        Given the code and the information the developer has, which code logs an error at boost with an event?`, 
+        answers: [
+            { text: `Try{
+                        server.start();
+                    } catch(error) {
+                        console.log('ERROR', error);
+                    }`, correct: false},
+            { text: `Server.error ((server) => {
+                        console.log('ERROR', error);
+                    });`, correct: false},
+            { text: `Server.on ('error', (error) => {
+                        console.log('ERROR', error);
+                    });`, correct: true},
+            { text: `Server.catch ((server) => {
+                        console.log('ERROR', error);
+                    });`, correct: false }
+        ]
+    },
+    {
+        question: `A developer is leading the creation of a new browser application that will serve a single page application. The team wants to use a new web framework Minimalsit.js.The Lead developer wants to advocate for a more seasoned web framework that already has a community around it.
+        Which two frameworks should the lead developer advocate for?
+        Choose 2 answers`,
+        answers: [
+            { text: "koa", correct: false },
+            { text: "Angular", correct: true },
+            { text: "vue", correct: false },
+            { text: "Express", correct: true }
+        ]
+    },
+    {
+        question: `A developer is leading the creation of a new web server for their team that will fulfill API requests from an existing client.
+        The team wants a web server that runs on Node.Js, and they want to use the new web framework Minimalist.Js. The lead developer wants to advocate for a more seasoned back-end framework that already has a community around it.
+        Which two frameworks could the lead developer advocate for?
+        Choose 2 answers`,
+        answers: [
+            { text: "Express", correct: true },
+            { text: "Angular", correct: false },
+            { text: "Gatsby", correct: false },
+            { text: "Koa", correct: true }
+        ]
+    }        
 ];
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
