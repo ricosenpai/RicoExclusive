@@ -29,14 +29,13 @@ const questions = [
         ]
     },
     {
-        question: `GIven a value, which three options can a developeruse to detect if thevalue is NaN?
+        question: `Given a value, which three options can a developeruse to detect if the value is NaN?
         Choose 3 answers !`, 
         answers: [
             { text: "value == NaN", correct: false},
-            { text: "value ! == value", correct: true },
+            { text: "value !== value", correct: true },
             { text: "Number.isNaN(value)", correct: true},
-            { text: "Object.is(value, NaN)", correct: true },
-            { text: "Object.is(value, NaN)", correct: false }
+            { text: "Object.is(value, NaN)", correct: true }
         ]
     },
     {
@@ -180,7 +179,19 @@ const questions = [
             { text: "Uses non-blocking functionality for performant requesthandling.", correct: true },
             { text: "Installs with its own package manager to install and manage third-party libraries.", correct: true }
         ]
-    }        
+    },
+    {
+        question: `A team that works on a bigproject uses npm to deal with projects dependencies.
+        A developer added a dependency does not get downloaded when they execute npm install.
+        Which two reasons could be possible explanations for this?
+        Choose 2 answers`, 
+        answers: [
+            { text: "The developer missed the option --addwhen adding the dependency.", correct: false },
+            { text: "The developer missed the option --save when adding the dependency.", correct: true },
+            { text: "The developer added the dependency as a dev dependency, and NODE_ENV is set to production.", correct: true },
+            { text: "duplicate", correct: false }
+        ]
+    }       
 ];
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
