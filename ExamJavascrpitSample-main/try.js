@@ -47,7 +47,7 @@ const questions = [
         answers: [
             { text: "Create a new window object in the root file.", correct: false},
             { text: "Assign variables to the global object.", correct: true },
-            { text: "Assign variables to module.exports and require them as needed.", correct: false},
+            { text: "Assign variables to module.exports and require them as needed.", correct: true},
             { text: "Use the document object instead of the window object.", correct: false }
         ]
     },
@@ -164,6 +164,21 @@ const questions = [
             { text: "Angular", correct: false },
             { text: "Gatsby", correct: false },
             { text: "Koa", correct: true }
+        ]
+    },
+    {
+        question: `developer is trying to convince management that their team will benefit from using Node.js for a backend 
+        server that they are going to create. The server will be a web server that handles API requests from a 
+        website that the teamhas already built using HTML, CSS, and JavaScript.
+
+        Which three benefits of Node.js can the developer use to persuade their manager?
+        Choose 3 answers:`,
+        answers: [
+            { text: "Performs a static analysis on code before execution to look for runtime errors.", correct: true },
+            { text: "Executes server-side JavaScript code to avoid learning a new language.", correct: false },
+            { text: "Ensures stabilitywith one major release every few years.", correct: false },
+            { text: "Uses non-blocking functionality for performant requesthandling.", correct: true },
+            { text: "Installs with its own package manager to install and manage third-party libraries.", correct: true }
         ]
     }        
 ];

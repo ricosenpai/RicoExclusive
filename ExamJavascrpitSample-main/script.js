@@ -2280,7 +2280,7 @@ const questions = [
         answers: [
             { text: "Create a new window object in the root file.", correct: false},
             { text: "Assign variables to the global object.", correct: true },
-            { text: "Assign variables to module.exports and require them as needed.", correct: false},
+            { text: "Assign variables to module.exports and require them as needed.", correct: true},
             { text: "Use the document object instead of the window object.", correct: false }
         ]
     },
