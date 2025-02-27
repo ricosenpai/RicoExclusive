@@ -191,6 +191,36 @@ const questions = [
             { text: "The developer added the dependency as a dev dependency, and NODE_ENV is set to production.", correct: true },
             { text: "duplicate", correct: false }
         ]
+    },
+    {
+        question: `is below:
+        &lt;input type="file" onchange="previewFile()"&gt;
+        &lt;img src="" height="200" alt="Image Preview..."/&gt;
+
+        The JavaScript portion is:
+
+        01 function previewFile(){
+        02     const preview = document.querySelector('img');
+        03     const file = document.querySelector('input[type=file]').files[0];
+        04      //line 4 code
+        05     reader.addEventListener("load", () => {
+        06         preview.src = reader.result;
+        07     },false);
+        08      //line 8 code
+        09 }
+
+        In lines 04 and 08, which code allows the user to select an image from their local computer ,
+        and to display the image in the browser?`, 
+        answers: [
+            { text: `04 const reader = new File();
+                     08 if (file) URL.createObjectURL(file);`, correct: false},
+            { text: `04 const reader = new FileReader();
+                     08 if (file) URL.createObjectURL(file);`, correct: false},
+            { text: `04 const reader = new FileReader();
+                     08 if (file) reader.readAsDataURL(file);`, correct: true},
+            { text: `04 const reader = new File();
+                     08 if (file) reader.readAsDataURL(file);`, correct: false }
+        ]
     }       
 ];
 const questionElement = document.getElementById("question");

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Debugging Example</title>
+</head>
+<body>
+
+    <label for="CarSpeed">Enter Car Speed:</label>
+    <input type="number" id="CarSpeed" value="100"> 
+    <button onclick="createCar()">Create Car</button>
+
+    <script>
+        function Car(maxSpeed, color) {
+            this.maxSpeed = maxSpeed;
+            this.color = color;
+        }
+
+        function createCar() {
+            let carSpeed = document.getElementById('CarSpeed'); // Get the input element
+
+            debugger; // Debugging stops here (open browser DevTools and run)
+
+            let fourWheels = new Car(carSpeed.value, 'red'); // Create a new Car object
+            console.log(fourWheels); // Log car details in console
+        }
+    </script>
+
+</body>
+</html>

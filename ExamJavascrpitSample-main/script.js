@@ -1321,7 +1321,7 @@ const questions = [
         const yup =await delay(1000);
         console.log(1);
 
-        What is logged to the console?`,
+        What is logged to the console? 231 corect answer the question is not completed`,
         answers: [
             { text: "1 2 3", correct: false },
             { text: "1 3 2", correct: false },
@@ -1790,9 +1790,9 @@ const questions = [
         uses an external library to display some third-party ads. Once the page is fully loaded,it creates more than 
         50 new HTML items placed randomly insidethe DOM, like the one in the code below:
 
-        <div class="ad-library-item ad-hidden" onload="myFunction();">
-            <img src="ad-library/ad1.gif" />
-        </div>
+        &lt;div class="ad-library-item ad-hidden" onload="myFunction();"&gt;
+            &lt;img src="ad-library/ad1.gif" /&gt;
+        &lt;/div&gt;
 
         All the elements includes the same ad-library-item class, They are hidden by default, and they are randomly
         displayed while the user navigates through the page.`, 
@@ -1802,13 +1802,13 @@ const questions = [
             { text: "Use the DOM inspector to remove all the elements containing the class ad-library-item.", correct: false },
             { text: "Use the DOM inspector to prevent the load eventto be fired.", correct: false }
         ]
-    },
+    },//&lt;div&gt;
     {
         question: `The developer has a function that prints "Hello" to an input name. To test this,thedeveloper created a 
         function that returns "World". However the following snippet does not print " Hello World".
 
         const sayHello = (name) => {
-            console.log("Hello", name());
+            console.log("Hello", name();)
         };
 
         const world = () => {
@@ -1816,9 +1816,10 @@ const questions = [
         };
 
         sayHello(world);
+
         What can the developer do to change the code to print "Hello World" ?`, 
         answers: [
-            { text: "Change line 2 to console.log('Hello' ,name() );", correct: true },
+            { text: "Change line 2 to console.log('Hello' ,name());", correct: true },
             { text: "Change line 9 to sayHello(world) ();", correct: false },
             { text: "Change line 5 to function world ( ) {", correct: false },
             { text: "Change line 7 to )();", correct: false }
@@ -2410,7 +2411,7 @@ const questions = [
         answers: [
             { text: "Let arr1 = arr.mapBy (( num) => ( return num *2 )) .filterBy (( val ) => return val > 15 )) ;", correct: false},
             { text: "Let arr1 = arr.filter(( val) => ( return val > 15 )) .map (( num) => ( return num *2 ))", correct: false},
-            { text: "Let arr1 = arr.map((num) => num*2). Filter (( val) => val > 15);", correct: true},
+            { text: "Let arr1 = arr.map((num) => num*2).filter(( val) => val > 15);", correct: true},
             { text: "Let arr1 = arr.map((num) => ( num *2)).filterBy((val) => ( val >15 ));", correct: false }
         ]
     },
@@ -2554,8 +2555,157 @@ const questions = [
             { text: "IIFEs", correct: false },
             { text: "indexedDB", correct: true }
         ]
-    }                                                                                               
-];
+    },
+    {
+        question: `Refer to the code below:
+        function foo () {
+        const a =2;
+        function bat() {
+        console.log(a);
+        }
+        return bar;
+        }
+        Why does the function bar have access to variable a ?`, 
+        answers: [
+            { text: "Inner function's scope", correct: false},
+            { text: "Prototype chain", correct: false},
+            { text: "Outer function's scope", correct: true},
+            { text: "Hoisting", correct: false }
+        ]
+    },
+    {
+        question: `is below:
+        &lt;input type="file" onchange="previewFile()"&gt;
+        &lt;img src="" height="200" alt="Image Preview..."/&gt;
+
+        The JavaScript portion is:
+
+        01 function previewFile(){
+        02     const preview = document.querySelector('img');
+        03     const file = document.querySelector('input[type=file]').files[0];
+        04      //line 4 code
+        05     reader.addEventListener("load", () => {
+        06         preview.src = reader.result;
+        07     },false);
+        08      //line 8 code
+        09 }
+
+        In lines 04 and 08, which code allows the user to select an image from their local computer ,
+        and to display the image in the browser?`, 
+        answers: [
+            { text: `04 const reader = new File();
+                     08 if (file) URL.createObjectURL(file);`, correct: false},
+            { text: `04 const reader = new FileReader();
+                     08 if (file) URL.createObjectURL(file);`, correct: false},
+            { text: `04 const reader = new FileReader();
+                     08 if (file) reader.readAsDataURL(file);`, correct: true},
+            { text: `04 const reader = new File();
+                     08 if (file) reader.readAsDataURL(file);`, correct: false }
+        ]
+    },
+    {
+        question: `A developer is trying to handle an error within a function.
+        Which code segment shows the correct approach to handle an error without propagating it elsewhere?`,
+        answers: [
+            { text: `try {
+                        doSomething();
+                     } catch (error) {
+                       throw new Error('Error Found');
+                     }`, correct: false },
+            { text: `try {
+                        doSomething();
+                     } catch (error) {
+                       processError(error);
+                     }`, correct: true },
+            { text: `try { 
+                        doSomething();
+                    } handleError(error) {
+                        return error;
+                    }`, correct: false },
+            { text: `try {
+                        doSomething();
+                     } catch (error) {
+                        return null;
+                     }`, correct: false }
+        ]
+    },
+    {
+        question: `Which two code snippets show working examples of a recursive function?
+        Choose 2 answers`,
+        answers: [
+            { text: `Function factorial ( numVar ) {
+                        If (numVar < 0) return;
+                        If ( numVar === 0 ) return 1;
+                        return numVar -1;}`, correct: false },
+            { text: `Const sumToTen = numVar => {
+                        If (numVar < 0)
+                        Return;
+                        return sumToTen(numVar + 1)};`, correct: false },
+            { text: `Let countingDown = function(startNumber) {
+                        If ( startNumber >0) {
+                        console.log(startNumber) ;
+                        return countingDown(startNUmber);
+                        } else {
+                            return startNumber;
+                        }
+                    };`, correct: true },
+            { text: `Const factorial =numVar => {
+                        If (numVar < 0) return;
+                        If ( numVar === 0 ) return 1;
+                        return numVar * factorial ( numVar - 1 );
+                    };`, correct: true }
+        ]
+    },
+    {
+        question: `Which statement accurately describes an aspect of promises?`,
+        answers: [
+            { text: `In a.then() function, returning results is not necessary since callbacks will catch 
+                the result of a previous promise.`, correct: false },
+            { text: `Arguments for the callback function passed to .then() are optional.`, correct: true },
+            { text: `.then() manipulates and returns the original promise.`, correct: false },
+            { text: `.then() cannot be added after a catch.`, correct: false }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+        &lt;html lang="en"&gt;
+            &lt;table onclick="console.log(Table log');"&gt;
+                &lt;tr id="row1"&gt;
+                    &lt;td>Click me!&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;table&gt;
+            &lt;script&gt;
+                function printMessage(event) {
+                    console.log('Row log');
+                }
+                Let elem = document.getElementById('row1');
+                elem.addEventListener('click', printMessage, false);
+            &lt;/script&gt;
+        &lt;/html&gt;
+        Which code change should be made for the console to log only Row log when 'Click me! ' is clicked?`,
+        answers: [
+            { text: `Add event.stopPropagation(); to printMessage function.`, correct: true },
+            { text: `Add event.removeEventListener(); to window.onLoad event handler.`, correct: false },
+            { text: `Add.event.stopPropagation(); to window.onLoad event handler.`, correct: false },
+            { text: `Add event.removeEventListener(); toprintMessage function.`, correct: false }
+        ]
+    },
+    {
+        question: `A developer is creating a simple webpage with a button. When a user clicks this button for the first time, a message is displayed.
+        The developer wrote the JavaScript code below, but something is missing. The message gets displayed every time a user clicks the button, instead of just the first time.
+        01 function listen(event) {
+        02  alert ( 'Hey! I am John Doe') ;
+        03  button.addEventListener ('click', listen);
+        Which two code lines make this code work as required?
+        Choose 2 answers`,
+        answers: [
+            { text: `On line 02, use event.first to test if it is the first execution.`, correct: false },
+            { text: `On line 04, use button.removeEventListener(' click" , listen);`, correct: true },
+            { text: `On line 04, use event.stopPropagation ( ),`, correct: false },
+            { text: `On line 06, add an option called once to button.addEventListener().`, correct: true }
+        ]
+    }                                                                                                 
+];//45/59
 //&lt;div&gt;
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
