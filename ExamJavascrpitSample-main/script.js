@@ -2704,7 +2704,17 @@ const questions = [
             { text: `On line 04, use event.stopPropagation ( ),`, correct: false },
             { text: `On line 06, add an option called once to button.addEventListener().`, correct: true }
         ]
-    }                                                                                                 
+    },
+    {
+        question: `myArraym can have one level, two levels, or more levels.
+        Which statement flattens myArray when it can be arbitrarily nested?`,
+        answers: [
+            { text: `[ ] .concat {. . .myArray) ;`, correct: false },
+            { text: `myArray.flat(Infinity);`, correct: true },
+            { text: `myArray. reduce ((prev, curr) => prev.concat(curr) [ ]);`, correct: false },
+            { text: `myArray. join (","). split (",");`, correct: false }
+        ]
+    }                                                                                                  
 ];//45/59
 //&lt;div&gt;
 const questionElement = document.getElementById("question");
