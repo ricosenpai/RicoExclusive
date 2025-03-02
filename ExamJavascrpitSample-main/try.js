@@ -221,6 +221,21 @@ const questions = [
             { text: `04 const reader = new File();
                      08 if (file) reader.readAsDataURL(file);`, correct: false }
         ]
+    },
+    {
+        question: `A developer is creating a simple webpage with a button. When a user clicks this button for the first time, a message is displayed.
+        The developer wrote the JavaScript code below, but something is missing. The message gets displayed every time a user clicks the button, instead of just the first time.
+        01 function listen(event) {
+        02  alert ( 'Hey! I am John Doe') ;
+        03  button.addEventListener ('click', listen);
+        Which two code lines make this code work as required?
+        Choose 2 answers`,
+        answers: [
+            { text: `On line 02, use event.first to test if it is the first execution.`, correct: false },
+            { text: `On line 04, use button.removeEventListener(' click" , listen);`, correct: true },
+            { text: `On line 04, use event.stopPropagation ( ),`, correct: false },
+            { text: `On line 06, add an option called once to button.addEventListener().`, correct: true }
+        ]
     }       
 ];
 const questionElement = document.getElementById("question");

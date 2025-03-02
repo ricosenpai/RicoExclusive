@@ -1608,7 +1608,7 @@ const questions = [
 
         setTimeout(() => {
             console.log(3);
-        }, 0); // Fixed misplaced closing parenthesis
+        },); // Fixed misplaced closing parenthesis
 
         console.log(4);
         In which sequence will the numbers be logged?`, 
