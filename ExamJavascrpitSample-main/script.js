@@ -2053,21 +2053,24 @@ const questions = [
             { text: "printPrice must be a multi exportc", correct: false }
         ]
     },
-    // { // the questio is not accurate in choices
-    //     question: `Refer to the code below:
-    //     Const searchTest = 'Yay! Salesforce is amazing!" ;
-    //     Let result1 = searchText.search(/sales/i);
-    //     Let result 21 = searchText.search(/sales/i);
-    //     console.log(result1);
-    //     console.log(result2);
-    //     After running this code, which result is displayed on the console?`, 
-    //     answers: [
-    //         { text: "> 5 > -1", correct: true },
-    //         { text: "> true > false", correct: false },
-    //         { text: "> 5>undefined", correct: false },
-    //         { text: "> 5 > 0", correct: false }
-    //     ]
-    // },
+    {
+        question: `Refer to the code below:
+        Const searchTest = 'Yay! Salesforce is amazing!" ;
+        Let result1 = searchText.search(/sales/i);
+        let result2 = searchText.search(/notfound/i); // A word that does not exist in the string
+        console.log(result1);
+        console.log(result2);
+        After running this code, which result is displayed on the console?
+    
+    
+         .search() method It returns the position (index) of the first match if found. If there is no match, it returns -1.`, 
+        answers: [
+            { text: "> 5 > -1", correct: true },
+            { text: "> true > false", correct: false },
+            { text: "> 5>undefined", correct: false },
+            { text: "> 5 > 0", correct: false }
+        ]
+    },
     {
         question: `Which code statement correctly retrieves and returns an object from localStorage?`, 
         answers: [
@@ -2714,8 +2717,48 @@ const questions = [
             { text: `myArray. reduce ((prev, curr) => prev.concat(curr) [ ]);`, correct: false },
             { text: `myArray. join (","). split (",");`, correct: false }
         ]
-    }                                                                                                  
-];//45/59
+    },
+    {
+        question: `A developer wants to iterate through an array of objects and count the objects and count
+        the objects whose property value, name, starts with the letter N.
+        Const arrObj = [{"name" : "Zach"} , {"name" : "Kate"},{"name" : "Alise"},{"name" : "Bob"},{"name" :
+        "Natham"},{"name" : "nathaniel"}
+        Refer to the code snippet below:
+        01 arrObj.reduce(( acc, curr) => {
+        02 //missing line 02
+        02 //missing line 03
+        04 ). 0);
+        Which missing lines 02 and 03 return the correct count?`,
+        answers: [
+            { text: `Const sum = curr.name.startsWIth('N') ? 1: 0;
+                    Return curr+ sum`, correct: false },
+            { text: `Const sum = curr.startsWith('N') ? 1: 0;
+                    Return acc +sum`, correct: false },
+            { text: `Const sum = curr.startsWIth('N') ? 1: 0;
+                    Return curr+ sum`, correct: false },
+            { text: `Const sum = curr.name.startsWith('N') ? 1: 0;
+                    Return acc +sum`, correct: true }
+        ]
+    },
+    {
+        question: `Refer to the code below:
+
+        function changeValue(param) {
+            Param =5;
+        }
+        Let a =10;
+        Let b =a;
+        changeValue(b);
+        Const result = a+ “ – ”+ b;
+        What is the value of result when code executes?`, 
+        answers: [
+            { text: "10 - 10", correct: true },
+            { text: "5 - 5", correct: false },
+            { text: "5 - 10", correct: false },
+            { text: "10 - 5", correct: false }
+        ]
+    }                                                                                                   
+];//19/146
 //&lt;div&gt;
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
